@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./ducami-login.css">
+</head>
+<body>
+    <div class = "ducami-login-background">
+        <div class="ducami-login-left-backgrond ducami-js-left"></div>
+        <div class = "ducami-login-right-background ducami-js-right"></div>
+    </div>
+
+    <div class="ducami-login-head">
+        <div>DUCADEMY</div>
+    </div>
+    <div class="ducami-login-comment-login">Login</div>
+    <div class = "ducami-login-comment-join">Join</div>
+    
+    <div class="ducami-login-login ducami-js-left">
+        <div class="ducami-login-login-comment">
+            로그인
+        </div>
+        <div class="ducami-login-login-input">
+            <input type="text" id = "ducami-login-login-id" placeholder="아이디를 입력하세요">
+            <input type="password" id = "ducami-login-login-password" placeholder="비밀번호를 입력하세요">
+            <input type="button" id = "ducami-login-login-button" value="로그인">
+        </div>
+    </div>
+
+    <div class="ducami-login-join ducami-js-right">
+        <div class="ducami-login-join-comment">
+            회원가입
+        </div>
+        <div class="ducami-login-join-input">
+            <div class="ducami-login-join-nameANDbirthday">
+            <input type="text" id="ducami-login-join-name" placeholder="이름">
+            <input type="text" id="ducami-login-join-birthday" placeholder="생년월일 (6자리)">
+            </div>
+            <div class="ducami-login-join-emailANDcertified">
+            <input type="text" id="ducami-login-join-email" placeholder="이메일">
+            <input type="button" id="ducami-login-join-certified" value="인증">
+            </div>
+            <input type="text" id="ducami-login-join-phonenumber" placeholder="휴대폰번호 (숫자만)">
+            <input type="password" id="ducami-login-join-password" placeholder="비밀번호">
+            <input type="password" id="ducami-login-join-passwordcheck" placeholder="비밀번호 확인">
+            <input type="button" id="ducami-login-join-button" value="회원가입">
+        </div>
+    </div>
+
+    <script src = "./ducami-login.js"></script>
+
+</body>
+</html>
