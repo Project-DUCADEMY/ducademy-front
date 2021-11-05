@@ -25,11 +25,14 @@
         <div class="ducami-login-login-comment">
             로그인
         </div>
-        <div class="ducami-login-login-input">
-            <input type="text" id="ducami-login-login-id" placeholder="아이디를 입력하세요">
-            <input type="password" id="ducami-login-login-password" placeholder="비밀번호를 입력하세요">
-            <input type="button" id="ducami-login-login-button" value="로그인">
-        </div>
+
+        <form class="ducami-login-login-input" autocomplete="off" method="post" name="loginForm"
+            action="http://10.80.161.31:3000/">
+            <input type="id" name="login_id" id="ducami-login-login-id" placeholder="아이디를 입력하세요">
+            <input type="password" name="login_password" id="ducami-login-login-password" placeholder="비밀번호를 입력하세요">
+            <input type="submit" id="ducami-login-login-button" value="로그인">
+        </form>
+
     </div>
 
     <div class="ducami-login-join ducami-js-right">
