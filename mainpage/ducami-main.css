@@ -1,0 +1,175 @@
+/* 빈 공간을 없애기 위해 margin,padding을 없앰 */
+html,body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+/* a태그들의 데코레이션을 없애기 */
+a{
+    text-decoration: none;
+}
+a :link{
+    text-decoration: none;
+}
+a:visited{
+    text-decoration: none;
+}
+
+
+
+/* 헤더 */
+.ducami-main-bar1{
+    /* height: 4vh; */
+    height: 40px;
+    background-color: #94C98B;
+    width: 100%;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 15px;
+    font-weight:lighter;
+    letter-spacing: 1px;
+    word-spacing: 2px;
+
+    /* position: absolute;
+    left: 0px;
+    top: 0px; */
+    
+    color: white;
+}
+
+/* 위에서 두 번째 바 */
+.ducami-main-bar2{
+    height: 90px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.ducami-main-list{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+/* 두카미로고 */
+.ducami-main-bar2-logo{
+    padding: 10px;
+    font-size: 30px;
+    font-weight: bold;
+    color: black;
+}
+/* 두카미 로고를 제외한 요소 */
+.ducami-main-bar2 div{
+    padding: 20px;
+    /* font-weight: lighter; */
+}
+/* 오른쪽 채팅과 프로필 */
+.ducami-main-memberdata{
+    display: flex;
+}
+.ducami-main-profile{
+    width: 5px;
+    height: 5px;
+    /* background-color: gold; */
+    /* padding: 0px; */
+
+    background-color: black;
+    border-radius: 100%;
+
+    margin: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.ducami-main-profile > img{
+    height:25px;
+    color: white;
+    background-color: white;
+}
+.ducami-main-chatting{
+    width: 10px;
+    height: 10px;
+    background-color: gold;
+    /* padding: 0px; */
+    margin: 5px;
+}
+
+
+
+/* 세션 */
+.ducami-main-eventContent{
+    width: 100%;
+    height: 600px;
+    background-color: #274358;
+
+    position: relative;
+
+    color: white;
+    font-size: 50px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+/* event(nany)부분 */
+.ducami-main-eventContentIn{
+    width: 100%;
+    height: 100%;
+    /* background-color: gold; */
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+}
+.ducami-main-eventContentIn-comment{
+    width: 30%;
+    height: 70%;
+    font-weight: bold;
+}
+.ducami-main-eventContentIn-comment-small{
+    font-weight:normal;
+    margin-top: 15px;
+    font-size: 22px;
+}
+.ducami-main-eventContentIn-img{
+    background-color: gold;
+    width: 30%;
+    height: 70%;
+}
+
+.ducami-main-eventContentPlus{
+    width: 80%;
+    height: 500px;
+    background-color: white;
+    z-index: 2;
+
+    font-size: 25px;
+    font-weight: bold;
+    /* padding: 50px; */
+    color: black;
+
+    position: absolute;
+    top: 520px;
+
+    box-shadow: black;
+    border-radius: 20px 20px 0px 0px;
+    
+    box-sizing: border-box;
+    padding-top: 30px;
+    padding-left: 70px;
+
+    display: flex;
+    flex-direction: column;
+    /* display: flex;
+    justify-content: center;
+    align-items: center;
+     */
+    /* 줄어들면 plus크기는 유지, 옆 남은 부분은 사라지도록 */
+}

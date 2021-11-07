@@ -56,6 +56,15 @@ body{
     /* position: absolute; */
     /* top: 10px; */
 }
+.ducami-login-head a{
+    color: black;
+    text-decoration: none;
+}
+.ducami-login-head a:visited{
+    text-decoration: none;
+}
+
+
 .ducami-login-comment-login{
     color:#71996A ;
     position: absolute;
@@ -75,11 +84,11 @@ body{
     /* justify-content: flex-end; */
     z-index: -3;
 
-    
 }
 .ducami-login-comment-login:hover{
-transform: scale(1.1);
-transform-origin: left bottom;
+    transition: transform 0.5s;
+    transform: scale(1.1);
+    transform-origin: left bottom;
 }
 
 .ducami-login-comment-join{
@@ -90,14 +99,16 @@ transform-origin: left bottom;
 
     top: 40vh;
     right: 55vh;
-
+    
     cursor: pointer;
 
     width: 25vh;
     height: 10vh;
     z-index: -2;
+    
 }
 .ducami-login-comment-join:hover{
+    transition: transform 0.5s;
     transform: scale(1.1);
     transform-origin: right bottom;
 }
@@ -238,3 +249,5 @@ input:focus{
     flex-direction:row;
     /* justify-content: space-between; */
 }
+
+
