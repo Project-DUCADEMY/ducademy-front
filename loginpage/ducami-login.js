@@ -72,21 +72,4 @@ init();
 
 
 
-//login과 join시 enter키 입력시 바로 로그인
-const loginbutton = document.querySelector('.ducami-login-login-password');
-const joinbutton = document.querySelector('.ducami-login-join-passwordcheck');
-
-function enterLogin() {
-    console.log("됨")
-    if (window.event.keyCode == 13) {
-        // 엔터키가 눌렸을 때 실행할 내용
-    }
-}
-function enterJoin() {
-    if (window.event.keyCode == 13){
-        // 엔터키가 눌렸을 때 실행할 내용
-    }
-}
-
-loginbutton.addEventListener("keydown",enterLogin());
-loginbutton.addEventListener("keydown",enterJoin());
+// login과 join시 enter키 입력시 바로 로그인
