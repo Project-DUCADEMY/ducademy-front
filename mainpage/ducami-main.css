@@ -23,6 +23,8 @@ a:visited{
 .ducami-main-bar1{
     /* height: 4vh; */
     height: 40px;
+    /* background-color: #7EA977; */
+    /* background-color: #5D9454; */
     background-color: #94C98B;
     width: 100%;
     
@@ -51,6 +53,7 @@ a:visited{
     align-items: center;
 }
 
+/* 두 번째 바의 왼쪽 부분 */
 .ducami-main-list{
     display: flex;
     flex-direction: row;
@@ -59,29 +62,35 @@ a:visited{
 }
 /* 두카미로고 */
 .ducami-main-bar2-logo{
-    padding: 10px;
+    padding-left: 10px;
     font-size: 30px;
     font-weight: bold;
     color: black;
+    padding-left: 50px;
+    padding-right: 20px;
 }
-/* 두카미 로고를 제외한 요소 */
-.ducami-main-bar2 div{
-    padding: 20px;
-    /* font-weight: lighter; */
+/* 두카미 로고를 제외한 것들 */
+.ducami-main-list > div{
+    padding-left: 30px;
+    padding-right: 10px;
+    /* font-weight: bold; */
+    /* padding-right:20px; */
 }
-/* 오른쪽 채팅과 프로필 */
+
+/* 두 번째 바의 오른쪽 부분 */
 .ducami-main-memberdata{
     display: flex;
     justify-content: center;
     align-items: center;
+    padding-right: 40px;
 }
 .ducami-main-profile{
-    margin-right:15px;
+    margin:15px;
     position: relative;
-    width: 7px;
-    height: 7px;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
-    background-color: white;
+    background-color:transparent;
     overflow: hidden;
 }
 .ducami-main-profile > img{
@@ -93,23 +102,41 @@ a:visited{
     object-fit: cover;
 }
 .ducami-main-chatting{
-    margin: 10px;
+    margin: 15px;
+    margin-top:17px;
     position: relative;
-    width: 7px;
-    height: 7px;
-    background-color: white;
-    overflow: hidden;
+    background-color: transparent;
 }
 .ducami-main-chatting > img{
-    position:absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-
-    
+    width: 35x;
+    height: 35px;
 }
+/* 채팅의 알람 */
+.ducami-main-chatting-alarm{
+    width: 20px;
+    height:20px;
+    box-sizing: border-box;
+    border-radius: 50%;
+    position: absolute;
+    padding: 0;
+    top: 0;
+    right: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+    color: white;
+    background-color: #94C98B;
+}
+
+
+
+
+
+
+
+
 
 
 /* 세션 */
@@ -145,18 +172,19 @@ a:visited{
 }
 .ducami-main-eventContentIn-comment-small{
     font-weight:normal;
-    margin-top: 15px;
-    font-size: 22px;
+    margin-top: 22px;
+    font-size: 21px;
+    line-height: 150%;
 }
 .ducami-main-eventContentIn-img{
-    background-color: gold;
+    background-color: #94C98B;
     width: 30%;
     height: 70%;
 }
 
 .ducami-main-eventContentPlus{
     width: 80%;
-    height: 500px;
+    height: auto;
     background-color: white;
     z-index: 2;
 
@@ -168,12 +196,16 @@ a:visited{
     position: absolute;
     top: 520px;
 
-    box-shadow: black;
-    border-radius: 20px 20px 0px 0px;
+    border-radius: 20px;
+
+    /* 그림자는 선택 */
+    box-shadow: 1px 1px 30px -10px gray;
     
     box-sizing: border-box;
-    padding-top: 30px;
+    padding-top: 50px;
     padding-left: 70px;
+
+    line-height:150%;
 
     display: flex;
     flex-direction: column;
@@ -182,4 +214,56 @@ a:visited{
     align-items: center;
      */
     /* 줄어들면 plus크기는 유지, 옆 남은 부분은 사라지도록 */
+}
+/* 밑에 있는 정보들의 각각의 컬럼 */
+.ducami-main-eventContentPlus > div{
+    margin-top: 50px;
+    margin-bottom: 50px;
+    font-size: 22px;
+}
+/* 밑에 있는 정보들의 왼쪽, 오른쪽에 오는 것들 */
+.ducami-main-info-left{
+    width: 50%;
+    float: left;
+    box-sizing: border-box;
+    /* background-color: gold; */
+    /* margin-right: 5px; */
+
+    height: 300px;
+}
+.ducami-main-info-right{
+    width: 50%;
+    float: right;
+    box-sizing: border-box;
+    /* background-color: yellow; */
+    /* margin-left: 5px; */
+
+    height: 300px;
+}
+/* 밑에 있는 정보들의 각각의 제목들 */
+.ducami-main-eventContentPlus >div >div >div{
+    font-size: 35px;
+    margin-bottom: 20px;
+    /* color: #94C98B; */
+}
+
+
+
+
+
+
+
+
+
+/* 푸터 */
+.ducami-main-footer-base{
+    width: 100%;
+    height: 2670px;
+    background-color: white;
+}
+.ducami-main-footer-content{
+    width: 100%;
+    height: 600px;
+    background-color: #94C98B;
+    color: white;
 }
