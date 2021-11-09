@@ -9,6 +9,7 @@ html,body {
 /* a태그들의 데코레이션을 없애기 */
 a{
     text-decoration: none;
+    color: black;
 }
 a :link{
     text-decoration: none;
@@ -65,14 +66,14 @@ a:visited{
     padding-left: 10px;
     font-size: 30px;
     font-weight: bold;
-    color: black;
+    /* color: black; */
     padding-left: 50px;
-    padding-right: 20px;
+    padding-right: 30px;
 }
 /* 두카미 로고를 제외한 것들 */
-.ducami-main-list > div{
-    padding-left: 30px;
-    padding-right: 10px;
+.ducami-main-list > a{
+    padding-left: 20px;
+    padding-right: 20px;
     /* font-weight: bold; */
     /* padding-right:20px; */
 }
@@ -164,17 +165,20 @@ a:visited{
     flex-flow: row wrap;
     justify-content: center;
     align-items: center;
+    line-height: 150%;
 }
 .ducami-main-eventContentIn-comment{
     width: 30%;
     height: 70%;
     font-weight: bold;
+    word-spacing: -5px;
 }
 .ducami-main-eventContentIn-comment-small{
     font-weight:normal;
     margin-top: 22px;
     font-size: 21px;
     line-height: 150%;
+    word-spacing: normal;
 }
 .ducami-main-eventContentIn-img{
     background-color: #94C98B;
@@ -262,8 +266,27 @@ a:visited{
     background-color: white;
 }
 .ducami-main-footer-content{
-    width: 100%;
-    height: 600px;
+    width: auto;
+    height: 1000px;
     background-color: #94C98B;
     color: white;
+
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+}
+.ducami-main-footer-ment{}
+.ducami-main-footer-left{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 100px;
+    
+}
+.ducami-main-footer-right{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 100px;
 }
