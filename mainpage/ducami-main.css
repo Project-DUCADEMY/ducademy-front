@@ -42,6 +42,9 @@ a:visited{
     top: 0px; */
     
     color: white;
+
+    position:sticky;
+    top: 0;
 }
 
 /* 위에서 두 번째 바 */
@@ -52,6 +55,9 @@ a:visited{
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+
+    position:sticky;
+    top: 0;
 }
 
 /* 두 번째 바의 왼쪽 부분 */
@@ -63,7 +69,6 @@ a:visited{
 }
 /* 두카미로고 */
 .ducami-main-bar2-logo{
-    padding-left: 10px;
     font-size: 30px;
     font-weight: bold;
     /* color: black; */
@@ -71,7 +76,7 @@ a:visited{
     padding-right: 30px;
 }
 /* 두카미 로고를 제외한 것들 */
-.ducami-main-list > a{
+.ducami-main-list  > a:not(.ducami-main-bar2-logo){
     padding-left: 20px;
     padding-right: 20px;
     /* font-weight: bold; */
@@ -93,6 +98,8 @@ a:visited{
     border-radius: 50%;
     background-color:transparent;
     overflow: hidden;
+
+    cursor: pointer;
 }
 .ducami-main-profile > img{
     position:absolute;
@@ -107,6 +114,8 @@ a:visited{
     margin-top:17px;
     position: relative;
     background-color: transparent;
+    
+    cursor: pointer;
 }
 .ducami-main-chatting > img{
     width: 35x;
@@ -131,9 +140,12 @@ a:visited{
     background-color: #94C98B;
 }
 
-
-
-
+/* ----------------- */
+/* 메뉴들에 hover했을 때 색변하게 */
+.ducami-main-bar2-log:hover{
+    background-color: #94C98B;
+}
+/* -------------- */
 
 
 
@@ -272,21 +284,35 @@ a:visited{
     color: white;
 
     display: flex;
-    flex-flow: row wrap;
+    flex-flow: column nowrap;
     justify-content: center;
     align-items: center;
 }
-.ducami-main-footer-ment{}
+/* 푸터의 멘트 */
+.ducami-main-footer-ment{
+    font-size: 30px;
+    font-weight:lighter;
+}
+.ducami-main-footer-line{
+    width: 30%;
+    height: 2px;
+    margin-top: 200px;
+    background: white;
+}
+.ducami-main-footer-list a{
+    color: white;
+}
 .ducami-main-footer-left{
+    float: left;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    margin: 100px;
-    
+    justify-content: flex-start;
+    margin: 50px;
 }
 .ducami-main-footer-right{
+    float: right;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    margin: 100px;
+    justify-content: flex-start;
+    margin: 50px;
 }
