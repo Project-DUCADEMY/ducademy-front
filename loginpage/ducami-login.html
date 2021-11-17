@@ -14,7 +14,6 @@
         <div class="ducami-login-left-backgrond ducami-js-left"></div>
         <div class="ducami-login-right-background ducami-js-right"></div>
     </div>
-
     <div class="ducami-login-head">
         <a href="/loginpage/ducami-login.html">DUCADEMY</a>
     </div>
@@ -27,9 +26,15 @@
         </div>
 
         <form class="ducami-login-login-input" autocomplete="off" method="post" name="loginForm"
-        action="http://10.80.161.31:3000/login">
-            <input type="id" name="login_id" id="ducami-login-login-id" placeholder="이메일을 입력하세요">
-            <input type="password" name="login_password" id="ducami-login-login-password" placeholder="비밀번호를 입력하세요">
+            action="http://10.80.161.31:3000/login">
+            <input type="id" name="login_id" id="ducami-login-login-id" placeholder="아이디 또는 이메일">
+            <div class="ducami-login-login-password">
+                <input type="password" name="login_password" id="ducami-login-login-password" placeholder="비밀번호">
+                <div class="ducami-login-login-eye">
+                    <img src="../imgs/closeeye.png" alt="showPasswordImg" class="ducami-login-login-eyeImg">
+                </div>
+            </div>
+
             <input type="submit" id="ducami-login-login-button" value="로그인">
         </form>
 

@@ -1,3 +1,5 @@
+'use strict';
+
 //마우스의 이벤트에따라 login,join을 보여주고 숨기는 기능
 const loginarea = document.querySelectorAll('.ducami-js-left');
 const joinarea = document.querySelectorAll('.ducami-js-right');
@@ -70,6 +72,28 @@ function init(){
 init();
 
 
+// 비밀번호 보이게, 안보이게
+const passwordInput =document.querySelector("#ducami-login-login-password");
+const showPassword = document.querySelector(".ducami-login-login-eye");
+const passwordImg = document.querySelector(".ucami-login-login-eyeImg");
+showPassword.addEventListener("click", changeInputState);
+
+function changeInputState(){
+    // 글씨의 타입을 바꿔줌, 사진변경
+    if (passwordInput.getAttribute('type') == 'password'){
+        passwordInput.setAttribute('type', 'text');
+    }
+    else{ // text -> password = closeeye
+        passwordInput.setAttribute('type','password');
+        // 현제를 기준으로 파일 위치를 설정해서 파일이 변경되면 변경해야됨!
+        
+    }
+}
+
+// console.log(showPassword.children)
 
 
 // login과 join시 enter키 입력시 바로 로그인
+
+
+
