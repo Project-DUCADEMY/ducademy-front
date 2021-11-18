@@ -182,7 +182,7 @@ input{
 .ducami-login-login-eye:hover{
     transform: scale(1.05);
 }
-.ducami-login-login-eye > img{
+.ducami-login-login-eyeImg{
     width: 70%;
     height: 70%;
     object-fit: cover;
