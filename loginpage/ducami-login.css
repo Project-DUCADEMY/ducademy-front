@@ -113,15 +113,7 @@ body{
     transform-origin: right bottom;
 }
 
-/* 로그인 멘트 */
-.ducami-login-login-comment{
-    color:white;
-    position: absolute;
-    top: 17vh;
-    left: 12vh;
-    font-size: 5vh;
-    font-weight: bold;
-}
+
 /* 로그인 페이지 전체 input태그 */
 input{
     font-size: 15px;
@@ -133,11 +125,26 @@ input{
     padding-left:5% ;
     /* color: #71996A; */
 }
+
+
+
+
+
+
+/* 로그인 멘트 */
+.ducami-login-login-comment{
+    color:white;
+    position: absolute;
+    top: 17vh;
+    left: 13vh;
+    font-size: 5vh;
+    font-weight: bold;
+}
 /* 로그인 input태그 전체 */
 .ducami-login-login-input{
     position: absolute;
     top: 35vh;
-    left: 10vh;
+    left: 11vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -231,12 +238,24 @@ input:focus{
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
 /* 회원가입 멘트 */
 .ducami-login-join-comment{
     color:white;
     position: absolute;
     top: 30vh;
-    right: 12vh;
+    right: 13vh;
     font-size: 5vh;
     font-weight: bold;
 }
@@ -245,7 +264,7 @@ input:focus{
 .ducami-login-join-input{
     position: absolute;
     top: 40vh;
-    right: 10vh;
+    right: 11vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
