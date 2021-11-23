@@ -27,16 +27,18 @@
             로그인
         </div>
 
-        <form class="ducami-login-login-input" autocomplete="off" method="post" name="loginForm"
-            action="http://10.80.161.31:3000/login" onsubmit="return checkAllLogin();">
+        <form class="ducami-login-login-input" autocomplete="off" method="post" name="loginForm" onsubmit="return checkAllLogin();"
+            action="http://10.80.161.31:3000/login">
             <input type="id" name="login_id" id="ducami-login-login-id" placeholder="아이디 또는 이메일">
             <div class="ducami-login-login-password">
                 <!-- 아래 input은 name으로 값을 가져오거나, id를 부여해야된다 -->
-                <input type="password" name="login_password"class="ducami-login-nextEye" placeholder="비밀번호">
+                <input type="password" name="login_password" class="ducami-login-nextEye" placeholder="비밀번호">
                 <div class="ducami-login-eye">
                     <img src="../imgs/closeeye.png" alt="showPasswordImg">
                 </div>
             </div>
+            <!-- 형식 출력 -->
+            <div class="makeIssue">아이디 또는 비밀번호가 잘못되었습니다</div>
 
             <input type="submit" id="ducami-login-login-button" value="로그인">
         </form>
@@ -48,17 +50,26 @@
             회원가입
         </div>
         <form class="ducami-login-join-input" autocomplete="off" method="post" name="joinForm"
-            action="http://10.80.161.31:3000/join" onsubmit="return checkAllJoin();">   
+            action="http://10.80.161.31:3000/join" onsubmit="return checkAllJoin();">
             <!-- 리턴을 해야 값이 넘어가기 전 검사 -->
             <div class="ducami-login-join-nameANDbirthday">
-                <input type="text" name="join_name" id="ducami-login-join-name" placeholder="이름" onkeydown="checkName()">
-                <input type="text" name="join_birthday" id="ducami-login-join-birthday" placeholder="생년월일 (6자리)">
-            </div>
+                <input type="text" name="join_name" id="ducami-login-join-name" placeholder="이름"
+                    onkeydown="checkName()">
+                    <input type="text" name="join_birthday" id="ducami-login-join-birthday" placeholder="생년월일 (6자리)">
+                </div>
+                <!-- 형식 출력 -->
+                <div class="makeIssue">잘못된 이름의 형식입니다</div>
+                <!-- 형식 출력 -->
+                <div class="makeIssue">잘못된 생년월일 형식입니다</div>
             <div class="ducami-login-join-emailANDcertified">
                 <input type="text" name="join_email" id="ducami-login-join-email" placeholder="이메일">
                 <input type="button" name="join_certified" id="ducami-login-join-certified" value="인증">
             </div>
-            <input type="text" name="join_phonenumber" id="ducami-login-join-phonenumber" placeholder="아이디">
+            <!-- 형식 출력 -->
+            <div class="makeIssue">잘못된 이메일 형식입니다</div>
+            <input type="text" name="join_id" id="ducami-login-join-id" placeholder="아이디">
+            <!-- 형식 출력 -->
+            <div class="makeIssue">잘못된 아이디 형식입니다</div>
             <div class="ducami-login-join-password">
                 <!-- 아래 input은 name으로 값을 가져오거나, id를 부여해야된다 -->
                 <input type="password" name="join_password" class="ducami-login-nextEye" placeholder="비밀번호">
@@ -66,13 +77,17 @@
                     <img src="../imgs/closeeye.png" alt="showPasswordImg">
                 </div>
             </div>
+            <!-- 형식 출력 -->
+            <div class="makeIssue">잘못된 비밀번호 형식입니다</div>
             <div class="ducami-login-join-passwordCheck">
                 <!-- 아래 input은 name으로 값을 가져오거나, id를 부여해야된다 -->
-            <input type="password" name="join_passwordcheck"class="ducami-login-nextEye" placeholder="비밀번호 확인">
-            <div class="ducami-login-eye">
-                <img src="../imgs/closeeye.png" alt="showPasswordImg">
+                <input type="password" name="join_passwordcheck" class="ducami-login-nextEye" placeholder="비밀번호 확인">
+                <div class="ducami-login-eye">
+                    <img src="../imgs/closeeye.png" alt="showPasswordImg">
+                </div>
             </div>
-            </div>
+            <!-- 형식 출력 -->
+            <div class="makeIssue">비밀번호와 일치하지 않습니다</div>
             <input type="submit" id="ducami-login-join-button" value="회원가입">
         </form>
     </div>
@@ -80,7 +95,8 @@
 
 
     <script src="./ducami-login.js"></script>
-    <script src="./ducami-login-checkPW.js"></script>
+    <script src="./ducami-login-checkLogin.js"></script>
+    <script src="./ducami-login-checkJoin.js"></script>
 
 </body>
 

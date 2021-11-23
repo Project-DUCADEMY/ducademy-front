@@ -1,3 +1,5 @@
+const joinForm = document.querySelector('.ducami-login-join-input');
+
 // 비교 후 형식에 맞으면 1, 안 맞으면 0
 let joinName = 0;
 let joinBirthday =0;

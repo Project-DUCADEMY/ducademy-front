@@ -351,3 +351,31 @@ input:focus{
     justify-content: space-between;
 }
 
+
+
+
+
+
+
+/* 이슈부분 */
+.makeIssue{
+    display: none;
+    color: red;
+    font-size: 13.5px;
+    width: 85%; 
+}
+
+/* 로그인 부분 이슈 */
+.ducami-login-login-input .makeIssue{
+    /* color: #B90000; */
+    /* color: #B22222; */
+    color: #CD0000;
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+
+/* 회원가입 부분 이슈 */
+.ducami-login-join-input .makeIssue{
+    margin-top :4px;
+    margin-bottom: 4px;
+}
