@@ -1,3 +1,7 @@
+* {
+    outline-color: #94C98B;
+}
+
 body{
     -webkit-user-select: none;
     -moz-user-select: none;
@@ -270,7 +274,8 @@ input:focus{
     justify-content: center;
     align-items: center;
     width: 35vh;
-    height: 50vh;
+    /* height: 50vh; */
+    height: 60vh;
 }
 
 /* 회원가입 인증 버튼 */
@@ -376,6 +381,11 @@ input:focus{
 
 /* 회원가입 부분 이슈 */
 .ducami-login-join-input .makeIssue{
-    margin-top :4px;
-    margin-bottom: 4px;
+    margin-top :1px;
+    margin-bottom: 5px;
 }
+
+.ducami-login-join-input .makeIssue:nth-of-type(1){
+    display: block;
+}
+
