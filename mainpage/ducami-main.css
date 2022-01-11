@@ -65,6 +65,7 @@ a:visited{
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
+    white-space: nowrap;
 }
 /* 두카미로고 */
 .ducami-main-bar2-logo{
@@ -80,8 +81,12 @@ a:visited{
  
 /* 두카미 로고를 제외한 것들 */
 .ducami-main-list  > a:not(.ducami-main-bar2-logo){
-    padding-left: 20px;
-    padding-right: 20px;
+    /* padding-left: 20px; */
+    /* padding-right: 20px; */
+    /* margin-left: 20px; */
+    margin-left: 2vh;
+    /* margin-right: 20px; */
+    margin-right: 2vh;
     /* font-weight: bold; */
     /* padding-right:20px; */
 }
@@ -115,6 +120,9 @@ a:visited{
     height: 100%;
     object-fit: cover;
 }
+.ducami-main-profile > img:hover{
+    filter: invert(92%) sepia(10%) saturate(1434%) hue-rotate(53deg) brightness(84%) contrast(85%);
+}
 /* 두카미 이미지는 개인이미지 일 때는 적용되지 않도록 해야한다 */
 .ducami-main-chatting{
     margin: 15px;
@@ -128,9 +136,10 @@ a:visited{
     width: 35x;
     height: 35px;
 }
-.ducami-main-chatting> img:hover{
+/* 알람부분은 js에서 전체처리 */
+/* .ducami-main-chatting > img:hover{
     filter: invert(92%) sepia(10%) saturate(1434%) hue-rotate(53deg) brightness(84%) contrast(85%);
-}
+} */
 /* 알람에 hover됐을 때 ..chatting > img에 색 변환 */
 
 /* 채팅의 알람 */
@@ -153,9 +162,6 @@ a:visited{
 }
 
 
-
-
-
 /* 세션 */
 .ducami-main-eventContent{
     width: 100%;
@@ -175,6 +181,7 @@ a:visited{
 /* event(nany)부분 */
 .ducami-main-eventContentIn{
     width: 100%;
+    min-width: 1300px;
     height: 100%;
     /* background-color: gold; */
     display: flex;
@@ -204,6 +211,7 @@ a:visited{
 
 .ducami-main-eventContentPlus{
     width: 80%;
+    min-width: 1000px;
     height: auto;
     background-color: white;
     z-index: 2;
@@ -335,4 +343,19 @@ a:visited{
     border-color: white;
 
     cursor: pointer;
+}
+
+
+
+/* 밑줄 */
+.ducami-main-underline{
+    position: absolute;
+    width: 0;
+    background-color: #94C98B;
+    /* top: 110px; */
+    top: 115px;
+    left: 50px;
+    height: 3px;
+    transition: 0.15s;
+    /* transition: 0.2s; */
 }

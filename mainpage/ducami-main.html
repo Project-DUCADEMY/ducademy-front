@@ -16,24 +16,28 @@
         </a>
         <div class="ducami-main-bar2">
             <div class="ducami-main-list">
-                <a href="" class="ducami-main-bar2-logo">
+                <a href="/" class="ducami-main-bar2-logo">
                     <div>DUCADEMY</div>
                 </a>
-                <a href="" class="ducami-main-learningData">수업자료</a>
-                <a href="" class="ducami-main-classSchedule">함께하기</a>
-                <a href="" class="ducami-main-onlineClass">실시간 수업</a>
-                <a href="" class="ducami-main-senior">선배 리스트</a>
+
+                <!-- hover됐을 때 밑줄 바를 만들어주기 위한 <div> -->
+                <div class="ducami-main-underline"></div>
+
+                <a href="" class="ducami-main-learningData menu">수업자료</a>
+                <a href="" class="ducami-main-classSchedule menu">함께하기</a>
+                <a href="" class="ducami-main-onlineClass menu">실시간 수업</a>
+                <a href="" class="ducami-main-senior menu">선배 리스트</a>
             </div>
             <div class="ducami-main-memberdata">
-                <div class="ducami-main-profile">
+                <div class="ducami-main-profile menu">
                     <img src="../imgs/profile1.png" alt="profileImg">
                     <!-- <img src="../imgs/Rprofile.jpg" alt="profileImg"> -->
                     <!-- 사용자의 프로필을 넣어야됨 -->
                 </div>
-                <div class="ducami-main-chatting">
+                <div class="ducami-main-chatting menu">
                     <img src="../imgs/chatting1.png" alt="chattingImg">
                     <span class="ducami-main-chatting-alarm">1</span>
-                    <!-- 문자가 없다면 chatting-alarm div를 display none -->
+                    <!-- 문자가 없다면 chatting-alarm div를 display none --> 
 
                     <!-- <div class="ducami-main-chatting-content">
 
@@ -187,7 +191,7 @@
         <div class="ducami-main-footer-base"></div>
         <div class="ducami-main-footer-content">
             <div class="ducami-main-footer-ment">
-                " 이 모든 것을 무료로 즐겨보세요 "
+                " 이 모든 것들을 무료로 즐겨보세요 "
             </div>
             <div class="ducami-main-footer-line"></div>
             <div class="ducami-main-footer-list">
@@ -198,10 +202,13 @@
                     <div class="ducami-main-footer-right">
                         개발자
                         <a href="https://github.com/codingbotPark" target="_blank">박병관(웹 프론트)</a>
+
                     </div>
             </div>
         </div>
     </footer>
+
+    <script src="./ducami-main.js"></script>
 </body>
 
 </html>
