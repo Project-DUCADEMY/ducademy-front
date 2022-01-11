@@ -16,23 +16,33 @@
         </a>
         <div class="ducami-main-bar2">
             <div class="ducami-main-list">
-                <a href="" class="ducami-main-bar2-logo">
+                <a href="/" class="ducami-main-bar2-logo">
                     <div>DUCADEMY</div>
                 </a>
-                <div class="ducami-main-learningData">수업자료</div>
-                <div class="ducami-main-classSchedule">함께하기</div>
-                <div class="ducami-main-onlineClass">실시간 수업</div>
-                <div class="ducami-main-senior">선배 리스트</div>
+
+                <!-- hover됐을 때 밑줄 바를 만들어주기 위한 <div> -->
+                <div class="ducami-main-underline"></div>
+
+                <a href="" class="ducami-main-learningData menu">수업자료</a>
+                <a href="" class="ducami-main-classSchedule menu">함께하기</a>
+                <a href="" class="ducami-main-onlineClass menu">실시간 수업</a>
+                <a href="" class="ducami-main-senior menu">선배 리스트</a>
             </div>
             <div class="ducami-main-memberdata">
-                <div class="ducami-main-profile">
+                <div class="ducami-main-profile menu">
                     <img src="../imgs/profile1.png" alt="profileImg">
                     <!-- <img src="../imgs/Rprofile.jpg" alt="profileImg"> -->
                     <!-- 사용자의 프로필을 넣어야됨 -->
                 </div>
-                <div class="ducami-main-chatting">
+                <div class="ducami-main-chatting menu">
                     <img src="../imgs/chatting1.png" alt="chattingImg">
                     <span class="ducami-main-chatting-alarm">1</span>
+                    <!-- 문자가 없다면 chatting-alarm div를 display none --> 
+
+                    <!-- <div class="ducami-main-chatting-content">
+
+                    </div> -->
+
                 </div>
             </div>
         </div>
@@ -58,7 +68,7 @@
             <div class="ducami-main-eventContentPlus">
                 DUCADEMY 알아보기
                 <div class="ducami-main-info-basic">
-                    <div class="ducami-main-info-left">
+                    <div class="ducami-main-info-right">
                         <div>
                             두카데미란?
                         </div>
@@ -69,11 +79,11 @@
                         두카데미(ducademy)는 
                         이런 ducami(두카미) 와 academy(학원) 
                         의 합성어이자 교육 웹사이트이다 -->
-                        두카데미(ducademy)는 
+                        두카데미(ducademy)는
                         <br>
-                        ducami(두카미) 와 academy(학원) 
+                        ducami(두카미) 와 academy(학원)
                         <br>
-                        의 합성어이자 교육 웹사이트이다
+                        의 합성어이자 교육 웹사이트입니다
                         <br>
                         <br>
                         education(교육) 과 ami(친구) 의
@@ -82,21 +92,21 @@
                         <br>
                         대구소프트웨어 마이스터 고등학교의
                         <br>
-                        교육을 목적으로 하는 동아리이다
+                        교육을 목적으로 하는 동아리입니다
                     </div>
-                    <div class="ducami-main-info-right">
+                    <div class="ducami-main-info-left">
                         <!-- 두카미기본의 사진 -->
                     </div>
                 </div>
                 <div class="ducami-main-info-signer">
-                    <div class="ducami-main-info-left">
+                    <div class="ducami-main-info-right">
                         <!-- 길라잡이의 사진 -->
                     </div>
-                    <div class="ducami-main-info-right">
+                    <div class="ducami-main-info-left">
                         <div>
                             길라잡이
                         </div>
-                        간단한 설문을 통해 
+                        간단한 설문을 통해
                         <br>
                         당신에게 맞는 자료,
                         <br>
@@ -106,7 +116,7 @@
                     </div>
                 </div>
                 <div class="ducami-main-info-learningData">
-                    <div class="ducami-main-info-left">
+                    <div class="ducami-main-info-right">
                         <div>
                             수업자료확인
                         </div>
@@ -117,15 +127,15 @@
                         <br>
                         당신의 자료도 공유할 수 있습니다!
                     </div>
-                    <div class="ducami-main-info-right">
+                    <div class="ducami-main-info-left">
                         <!-- 수업자료확인의 사진 -->
                     </div>
                 </div>
                 <div class="ducami-main-info-classSchedule">
-                    <div class="ducami-main-info-left">
+                    <div class="ducami-main-info-right">
                         <!-- 수업신청의 사진 -->
                     </div>
-                    <div class="ducami-main-info-right">
+                    <div class="ducami-main-info-left">
                         <div>
                             일정보기
                         </div>
@@ -135,7 +145,7 @@
                     </div>
                 </div>
                 <div class="ducami-main-info-onlineClass">
-                    <div class="ducami-main-info-left">
+                    <div class="ducami-main-info-right">
                         <div>
                             실시간 수업
                         </div>
@@ -143,15 +153,15 @@
                         <br>
                         함께해 주실 건가요?
                     </div>
-                    <div class="ducami-main-info-right">
+                    <div class="ducami-main-info-left">
                         <!-- 실시간 수업의 사진 -->
                     </div>
                 </div>
                 <div class="ducami-main-info-senior">
-                    <div class="ducami-main-info-left">
+                    <div class="ducami-main-info-right">
                         <!-- 선배리스트의 사진 -->
                     </div>
-                    <div class="ducami-main-info-right">
+                    <div class="ducami-main-info-left">
                         <div>
                             선배 리스트
                         </div>
@@ -161,7 +171,7 @@
                     </div>
                 </div>
                 <div class="ducami-main-info-chatting">
-                    <div class="ducami-main-info-left">
+                    <div class="ducami-main-info-right">
                         <div>
                             채팅
                         </div>
@@ -169,7 +179,7 @@
                         <br>
                         다양한 사람들과 지식을 교환하세요
                     </div>
-                    <div class="ducami-main-info-right">
+                    <div class="ducami-main-info-left">
                         <!-- 채팅의 사진 -->
                     </div>
                 </div>
@@ -180,11 +190,25 @@
     <footer>
         <div class="ducami-main-footer-base"></div>
         <div class="ducami-main-footer-content">
-            <div class="ducami-main-footer-left"></div>
-            <div class="ducami-main-footer-center"></div>
-            <div class="ducami-main-footer-right"></div>
+            <div class="ducami-main-footer-ment">
+                " 이 모든 것들을 무료로 즐겨보세요 "
+            </div>
+            <div class="ducami-main-footer-line"></div>
+            <div class="ducami-main-footer-list">
+                    <div class="ducami-main-footer-left">
+                        연관
+                        <a href="https://www.facebook.com/duco.ami" target="_blank">두카미 페이스북</a>
+                    </div>
+                    <div class="ducami-main-footer-right">
+                        개발자
+                        <a href="https://github.com/codingbotPark" target="_blank">박병관(웹 프론트)</a>
+
+                    </div>
+            </div>
         </div>
     </footer>
+
+    <script src="./ducami-main.js"></script>
 </body>
 
 </html>

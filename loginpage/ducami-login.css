@@ -1,3 +1,7 @@
+* {
+    outline-color: #94C98B;
+}
+
 body{
     -webkit-user-select: none;
     -moz-user-select: none;
@@ -113,28 +117,8 @@ body{
     transform-origin: right bottom;
 }
 
-/* 로그인 멘트 */
-.ducami-login-login-comment{
-    color:white;
-    position: absolute;
-    top: 17vh;
-    left: 12vh;
-    font-size: 5vh;
-    font-weight: bold;
-}
-/* 로그인 input태그 전체 */
-.ducami-login-login-input{
-    position: absolute;
-    top: 35vh;
-    left: 10vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 35vh;
-    height: 30vh;
-}
-/* 로그인 전체 input태그 */
+
+/* 로그인 페이지 전체 input태그 */
 input{
     font-size: 15px;
     margin: 5px;
@@ -145,6 +129,96 @@ input{
     padding-left:5% ;
     /* color: #71996A; */
 }
+
+
+
+
+
+
+/* 로그인 멘트 */
+.ducami-login-login-comment{
+    color:white;
+    position: absolute;
+    top: 17vh;
+    left: 13vh;
+    font-size: 5vh;
+    font-weight: bold;
+}
+/* 로그인 input태그 전체 */
+.ducami-login-login-input{
+    position: absolute;
+    top: 35vh;
+    left: 11vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 35vh;    
+    height: 30vh;
+}
+/* 비밀번호 input, eye*/
+.ducami-login-login-password{
+    width: 33vh;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    /* justify-content: center; */
+    align-items: center;
+    justify-content: space-between;
+}
+/* 비밀번호 input */
+.ducami-login-nextEye{
+    width: 25vh;
+}
+/* 비밀번호 보이게, 안보이게 */
+.ducami-login-login-input .ducami-login-eye{
+    /* position: absolute;
+    right: 0; */
+    width: 30px;
+    height: 30px;
+    /* background-color: black; */
+    position: relative;
+    background-color:#94C98B ;
+    border-radius: 10px;
+    height: 4vh;
+    width: 4vh;
+    margin-right: 5px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    cursor: pointer;
+}
+.ducami-login-join-input .ducami-login-eye{
+    /* position: absolute;
+    right: 0; */
+    width: 30px;
+    height: 30px;
+    /* background-color: black; */
+    position: relative;
+    background-color:#71996A ;
+    border-radius: 10px;
+    height: 4vh;
+    width: 4vh;
+    margin-right: 5px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    cursor: pointer;
+}
+.ducami-login-eye:hover{
+    transform: scale(1.05);
+}
+.ducami-login-eye img{
+    width: 70%;
+    height: 70%;
+    object-fit: cover;
+    filter: invert(79%) sepia(100%) saturate(1%) hue-rotate(147deg) brightness(114%) contrast(101%);
+}
+
 /* 로그인 버튼 */
 #ducami-login-login-button{
     margin-top: 3vh;
@@ -168,12 +242,24 @@ input:focus{
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
 /* 회원가입 멘트 */
 .ducami-login-join-comment{
     color:white;
     position: absolute;
     top: 30vh;
-    right: 12vh;
+    right: 13vh;
     font-size: 5vh;
     font-weight: bold;
 }
@@ -182,13 +268,14 @@ input:focus{
 .ducami-login-join-input{
     position: absolute;
     top: 40vh;
-    right: 10vh;
+    right: 11vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 35vh;
-    height: 50vh;
+    /* height: 50vh; */
+    height: 60vh;
 }
 
 /* 회원가입 인증 버튼 */
@@ -234,7 +321,6 @@ input:focus{
     box-sizing: content-box;
     padding:0px;
     text-align: center;
-
 }
 
 .ducami-login-join-nameANDbirthday{
@@ -249,5 +335,59 @@ input:focus{
     flex-direction:row;
     /* justify-content: space-between; */
 }
+
+
+/* 회원가입 비밀번호 input, button */
+.ducami-login-join-password{
+    width: 33vh;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.ducami-login-join-passwordCheck{
+    width: 33vh;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+
+
+
+
+
+/* 이슈부분 */
+.makeIssue{
+    display: none;
+    color: red;
+    font-size: 13.5px;
+    width: 85%; 
+}
+
+/* 로그인 부분 이슈 */
+.ducami-login-login-input .makeIssue{
+    /* color: #B90000; */
+    /* color: #B22222; */
+    color: #CD0000;
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+
+/* 회원가입 부분 이슈 */
+.ducami-login-join-input .makeIssue{
+    margin-top :1px;
+    margin-bottom: 5px;
+}
+
+.ducami-login-join-input .makeIssue:nth-of-type(1){
+    display: block;
+}
+
 
 
