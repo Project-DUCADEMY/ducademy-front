@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import Userinfo from './Userinfo'
 import Sidemenu from './Sidemenu'
+import axios from 'axios'
 let Main = styled.div `
     position: fixed;
     height: 100%;
@@ -33,6 +34,16 @@ function Sidebar(props) {
                     )
                 })
             }
+            <button onClick={ () => { 
+                axios.post( 
+                '/sign/out', 
+                {
+                })
+                .then( () => {
+                    window.location.replace("/")
+                })
+            }
+            }>Sign out</button>
         </Main>
     )
 }

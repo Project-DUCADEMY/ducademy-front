@@ -17,7 +17,6 @@ function Testpage(props) {
                 }) 
                 .then( console.log )
                 .catch( console.log )
-
             }
             }>Click1</button>
             <button onClick={ () => { 
@@ -27,15 +26,7 @@ function Testpage(props) {
                 })
             }
             }>Click2</button>
-            <button onClick={ () => { 
-                axios.post( 
-                '/sign/check', 
-                {
-                })
-                .then( console.log )
-                .catch( console.log )
-            }
-            }>Click3</button>
+
         </Main>
     )
 }
