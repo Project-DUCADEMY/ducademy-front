@@ -15,22 +15,24 @@ const IdPhoto = styled.img`
 `
 const Datas = styled.div`
     float: left;
-
 `
 const Name = styled.div`
     position: relative;
-    left: 20px;
+    left: 15px;
     top: 30px;
 `
 const Role = styled.div`
 position: relative;
-    left: 20px;
+    left: 15px;
     top: 30px;
 `
+const errorImgLink = (e) => {
+    e.target.src = '/user-directory/profile-picture/default.jpeg'
+}
 function Userinfo(props) {
     return (
         <Main>
-            <IdPhoto src = { props.userinfo.photoLink }/>
+            <IdPhoto src={ props.userinfo.photoLink } onError={ errorImgLink }/>
             <Datas>
                 <Name>{ props.userinfo.name }</Name>
                 <Role>{ props.userinfo.role }</Role>

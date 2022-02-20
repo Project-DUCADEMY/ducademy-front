@@ -13,11 +13,7 @@ import menu from './assets/dummy/menu.js'
 
 import axios from 'axios';
 
-axios.post( 
-  '/ssr/userinfo', 
-  {
-  }
-)
+axios.post('/ssr/userinfo')
 .then( (result) => {
   if(result.data === 'Session expired') {
     ReactDOM.render(
@@ -31,16 +27,16 @@ axios.post(
     );
   }
   else {
+    // console.log(result)
     ReactDOM.render(
       <React.StrictMode>
         <BrowserRouter>
-          <Sidebar userinfo = { userinfo } menu = { menu } />
+          <Sidebar userinfo = { result.data } menu = { menu } />
           <Route exact path='/'> <Redirect to = 'main'/> </Route>
           <Route exact path='/sign'> <Redirect to = 'main'/> </Route>
           <Route path='/main'> <Testpage/> </Route>
           <Route path='/test1'> <div> 1 </div> </Route>
           <Route path='/test2'> <div> 2 </div> </Route>
-          <Route path='/test3'> <div> 3 </div> </Route>
           <Route exact path='/sign'> <Signpage/> </Route>
         </BrowserRouter>
       </React.StrictMode>,
@@ -49,7 +45,6 @@ axios.post(
   }
 })
 .catch( console.log )
-
 
 // ReactDOM.render(
 //   <React.StrictMode>
@@ -69,4 +64,5 @@ axios.post(
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+
+// reportWebVitals();
