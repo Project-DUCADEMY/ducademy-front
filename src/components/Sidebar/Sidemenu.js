@@ -1,6 +1,8 @@
 import styled, { keyframes } from 'styled-components';
 import { Link } from 'react-router-dom'
 import { DisplayText, HideText } from './HideText';
+import { useRecoilState } from 'recoil';
+import { sideBarState } from './Sidebar';
 const Main = styled.div`
     height: 8%;
     width: auto;
@@ -40,12 +42,13 @@ const Border = styled.div`
     margin-top: 10px;
 `
 function Sidemenu (props) {
+    let [open, setOpen] = useRecoilState(sideBarState)
     return (
         <Main>
             <Link to = { props.info.link }>
                 <Border color={ props.info.background }>
-                    <Icon open={props.open} src={ props.info.iconSrc }></Icon>
-                    <Content open={props.open}>{ props.info.content }</Content>
+                    <Icon open={open} src={ props.info.iconSrc }></Icon>
+                    <Content open={open}>{ props.info.content }</Content>
                 </Border>
             </Link>
         </Main>

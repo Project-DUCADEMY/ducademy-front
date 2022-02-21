@@ -3,25 +3,22 @@ import axios from 'axios'
 import { useState, useEffect } from 'react';
 import React from 'react'
 
+import {
+    atom,
+    useRecoilState,
+} from 'recoil';
+
 import Userinfo from './Userinfo'
 import Sidemenu from './Sidemenu'
 import Signout from './Signout'
 import Reduce from './Reduce'
 let DecreaseBar = keyframes`
-    0% {
-        width: 230px;
-    }
-    100% {
-        width: 100px;
-    }
+    0% { width: 230px; }
+    100% { width: 100px; }
 `
 let IncreaseBar = keyframes`
-    0% {
-        width: 100px;
-    }
-    100% {
-        width: 230px;
-    }
+    0% { width: 100px; }
+    100% { width: 230px; }
 `
 let Main = styled.div `
     position: fixed;
@@ -36,22 +33,13 @@ let Main = styled.div `
     animation-fill-mode: forwards;
 `
 let IncreaseLine = keyframes`
-    0% {
-        width: 100%;
-    }
-    100% {
-        width: 80%;
-    }
+    0% { width: 100%; }
+    100% { width: 80%; }
 `
 let DecreaseLine = keyframes`
-    0% {
-        width: 80%;
-    }
-    100% {
-        width: 100%;
-    }
+    0% { width: 80%; }
+    100% { width: 100%; }
 `
-
 let BorderLine = styled.hr`
     border: none;
     height: 2px;
@@ -62,9 +50,13 @@ let BorderLine = styled.hr`
     animation-duration: inherit;
     animation-fill-mode: forwards;
 `
+export const sideBarState = atom({
+    key: 'openState',
+    default: true
+})
 function Sidebar(props) {
     let [menus, setMenus] = useState(new Array)
-    let [open, setOpen] = useState(true)
+    let [open, setOpen] = useRecoilState(sideBarState)
     let [runAnime, setRunAnime] = useState(false)
     useEffect(() => {
         axios.post('/ssr/menus').
@@ -79,14 +71,13 @@ function Sidebar(props) {
             open={open}
             run={runAnime}
         >
-            <Userinfo userinfo={ props.userinfo } open={open}></Userinfo>
+            <Userinfo userinfo={ props.userinfo }></Userinfo>
             <BorderLine open={ open }/>
             <Reduce set={() => { setOpen(!open) }}/>
             { 
                 menus.map( (element, idx) => {
                     return (
                         <Sidemenu
-                            open = { open }
                             info = { element }
                             key = { idx }
                         />
@@ -95,6 +86,7 @@ function Sidebar(props) {
             }
             <Signout/>
         </Main>
+
     )
 }
 export default Sidebar

@@ -1,17 +1,22 @@
 import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
 import './assets/css/index.css';
-import reportWebVitals from './reportWebVitals';
 import { Route,BrowserRouter, Redirect } from 'react-router-dom'
 
 import Sidebar from './components/sidebar/Sidebar';
 import Testpage from './components/Testpage'
 import Signpage from './components/signpage/Signpage';
-
-import userinfo from './assets/dummy/userinfo.js'
-import menu from './assets/dummy/menu.js'
+import Debuggerpage from './components/debuggerpage/Debugger';
 
 import axios from 'axios';
+
+import {
+  RecoilRoot,
+  atom,
+  selector,
+  useRecoilState,
+  useRecoilValue,
+} from 'recoil'
 
 axios.post('/ssr/userinfo')
 .then( (result) => {
@@ -31,13 +36,16 @@ axios.post('/ssr/userinfo')
     ReactDOM.render(
       <React.StrictMode>
         <BrowserRouter>
-          <Sidebar userinfo = { result.data } menu = { menu } />
-          <Route exact path='/'> <Redirect to = 'main'/> </Route>
-          <Route exact path='/sign'> <Redirect to = 'main'/> </Route>
-          <Route path='/main'> <Testpage/> </Route>
-          <Route path='/test1'> <div> 1 </div> </Route>
-          <Route path='/test2'> <div> 2 </div> </Route>
-          <Route exact path='/sign'> <Signpage/> </Route>
+          <RecoilRoot>
+            <Sidebar userinfo = { result.data } />
+            <Route exact path='/'> <Redirect to = 'main'/> </Route>
+            <Route exact path='/sign'> <Redirect to = 'main'/> </Route>
+            <Route path='/main'> <Testpage/> </Route>
+            <Route path='/debugger'> <Debuggerpage/> </Route>
+            <Route path='/test2'> <div> 1 </div> </Route>
+            <Route path='/test2'> <div> 2 </div> </Route>
+            <Route exact path='/sign'> <Signpage/> </Route>
+          </RecoilRoot>
         </BrowserRouter>
       </React.StrictMode>,
       document.getElementById('root')

@@ -1,5 +1,7 @@
+import { useRecoilState } from 'recoil';
 import styled, { keyframes } from 'styled-components';
 import { DisplayText, HideText } from './HideText';
+import { sideBarState } from './Sidebar';
 const Main = styled.div`
     width: auto;
     height: 11%;
@@ -47,14 +49,15 @@ const errorImgLink = (e) => {
     e.target.src = '/user-directory/profile-picture/default.jpeg'
 }
 function Userinfo(props) {
+    let [open, setOpen] = useRecoilState(sideBarState)
     return (
         <Main>
             <IdPhoto 
                 src={ props.userinfo.photoLink } 
                 onError={ errorImgLink }
-                open = { props.open }
+                open = { open }
             />
-            <Infos open = { props.open} >
+            <Infos open = { open } >
                 <Name>{ props.userinfo.name }</Name>
                 <Role>{ props.userinfo.role }</Role>
             </Infos>
