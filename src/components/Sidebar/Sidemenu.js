@@ -1,5 +1,6 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import { Link } from 'react-router-dom'
+import { DisplayText, HideText } from './HideText';
 const Main = styled.div`
     height: 8%;
     width: auto;
@@ -15,17 +16,20 @@ const Content = styled.div`
     left: -8px;
     top: 50%;
     transform:translateY(-50%);
+    animation: ${props => props.open ? DisplayText : HideText};
+    animation-duration: 0.4s;
+    animation-fill-mode: forwards;
 `
+
 const Icon = styled.img`
-    float: left;
-    height: auto;
-    width: 20%;
+    height: 60%;
+    width: auto;
     position: relative;
-    left: 8px;
+    left: 10px;
     top: 50%;
     transform:translateY(-50%);
 `
-const Test = styled.div`
+const Border = styled.div`
     width: 100%;
     height: 100%;
     border-radius: 10px;
@@ -39,10 +43,10 @@ function Sidemenu (props) {
     return (
         <Main>
             <Link to = { props.info.link }>
-                <Test color={ props.info.background }>
-                    <Icon src={ props.info.iconSrc }></Icon>
-                    <Content>{ props.info.content }</Content>
-                </Test>
+                <Border color={ props.info.background }>
+                    <Icon open={props.open} src={ props.info.iconSrc }></Icon>
+                    <Content open={props.open}>{ props.info.content }</Content>
+                </Border>
             </Link>
         </Main>
     )

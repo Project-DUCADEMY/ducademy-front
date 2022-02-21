@@ -31,34 +31,57 @@ let Main = styled.div `
     float: left;
     border-right: 1px solid #b9b9ff;
     background-color: #c2ffcb;
-    animation: ${props => props.open ? DecreaseBar : IncreaseBar} 0.4s;
-    animation-play-state: running;
+    animation: ${props => props.open ? IncreaseBar : DecreaseBar};
+    animation-duration: ${props => props.run ? '0.4s' : '0.0s'};
     animation-fill-mode: forwards;
 `
+let IncreaseLine = keyframes`
+    0% {
+        width: 100%;
+    }
+    100% {
+        width: 80%;
+    }
+`
+let DecreaseLine = keyframes`
+    0% {
+        width: 80%;
+    }
+    100% {
+        width: 100%;
+    }
+`
+
 let BorderLine = styled.hr`
     border: none;
     height: 2px;
     align: center;
     width: 80%;
     background-color: #67b771;
+    animation: ${props => props.open ? IncreaseLine : DecreaseLine};
+    animation-duration: inherit;
+    animation-fill-mode: forwards;
 `
 function Sidebar(props) {
     let [menus, setMenus] = useState(new Array)
-    let [open, setOpen] = useState(false)
+    let [open, setOpen] = useState(true)
+    let [runAnime, setRunAnime] = useState(false)
     useEffect(() => {
         axios.post('/ssr/menus').
-        then((result) => { setMenus(result.data) })
+        then((result) => { 
+            setMenus(result.data)
+            setTimeout(() => {setRunAnime(true)}, 300)
+        })
         .catch ((result) => { console.log(result) })
     }, [])
     return (
         <Main 
-        open={open} 
+            open={open}
+            run={runAnime}
         >
-            <Userinfo userinfo = { props.userinfo }></Userinfo>
-            <BorderLine/>
-            <Reduce set={ () => {
-                setOpen(!open)
-            }}/>
+            <Userinfo userinfo={ props.userinfo } open={open}></Userinfo>
+            <BorderLine open={ open }/>
+            <Reduce set={() => { setOpen(!open) }}/>
             { 
                 menus.map( (element, idx) => {
                     return (
