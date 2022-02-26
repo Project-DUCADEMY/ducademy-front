@@ -2,10 +2,11 @@ import styled from 'styled-components';
 import axios from 'axios';
 
 let Main = styled.div`
-    position: absolute; 
-    bottom: 20px;
-    left: 50%; 
     transform: translateX(-50%);
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    margin: 0px auto;
     border-radius: 10px;
     padding: 5px 10px;
     cursor: pointer;

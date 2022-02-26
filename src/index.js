@@ -7,6 +7,7 @@ import Sidebar from './components/sidebar/Sidebar';
 import Testpage from './components/Testpage'
 import Signpage from './components/signpage/Signpage';
 import Debuggerpage from './components/debuggerpage/Debugger';
+import Calendar from './components/Calendar/Calendar.js'
 
 import axios from 'axios';
 
@@ -42,8 +43,7 @@ axios.post('/ssr/userinfo')
             <Route exact path='/sign'> <Redirect to = 'main'/> </Route>
             <Route path='/main'> <Testpage/> </Route>
             <Route path='/debugger'> <Debuggerpage/> </Route>
-            <Route path='/test2'> <div> 1 </div> </Route>
-            <Route path='/test2'> <div> 2 </div> </Route>
+            <Route path='/calendar'> <Calendar/> </Route>
             <Route exact path='/sign'> <Signpage/> </Route>
           </RecoilRoot>
         </BrowserRouter>

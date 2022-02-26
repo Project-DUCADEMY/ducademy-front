@@ -24,7 +24,7 @@ const Content = styled.div`
 `
 
 const Icon = styled.img`
-    height: 60%;
+    height: 40px;
     width: auto;
     position: relative;
     left: 10px;

@@ -3,18 +3,11 @@ import styled, { keyframes } from 'styled-components';
 import { DisplayText, HideText } from './HideText';
 import { sideBarState } from './Sidebar';
 const Main = styled.div`
+    position: relative;
     width: auto;
     height: 11%;
     padding: 20px;
     padding-bottom: 0px;
-`
-const DecreasePicture = keyframes`
-    0% { left: 0px; }
-    100% { left: -7px; }
-`
-const IncreasePicture = keyframes`
-    0% { left: -7px; }
-    100% { left: 0px; }
 `
 const IdPhoto = styled.img`
     width: 75px;
@@ -22,15 +15,13 @@ const IdPhoto = styled.img`
     object-fit: cover;
     border-radius: 40%;
     position: relative;
-    animation: ${props => props.open ? IncreasePicture : DecreasePicture};
-    animation-duration: 0.4s;
-    animation-fill-mode: forwards;
-    animation-timing-function: linear;
+    left: ${props=>props.open ? "0px" : "-7px"};
+    transition : 0.4s;
 `
 const Infos = styled.div`
     position: absolute;
     right: 40px;
-    top: 20px;
+    bottom: 45px;
     animation: ${props => props.open ? DisplayText : HideText};
     animation-duration: 0.4s;
     animation-fill-mode: forwards;

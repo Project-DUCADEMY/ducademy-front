@@ -1,15 +1,25 @@
 import styled from 'styled-components';
 import AceEditor from "react-ace";
-import "ace-builds/src-noconflict/mode-c_cpp.js";
-import "ace-builds/src-noconflict/theme-xcode";
 
+import 'brace/mode/javascript';
+import 'brace/mode/plain_text';
+
+import 'brace/theme/monokai';
+import 'brace/theme/textmate';
+import 'brace/theme/github';
+
+import 'brace/snippets/javascript';
+import 'brace/ext/language_tools';
+
+import 'brace/snippets/c_cpp'
+import 'brace/mode/c_cpp'
 import {
     atom,
     useRecoilState,
 } from 'recoil';
 
 const Main = styled.div`
-    float: right;
+    
 `
 
 export const debuggerState = atom({
@@ -22,10 +32,20 @@ function Debuggerpage(props) {
         <Main>
             <AceEditor
                 mode="c_cpp"
-                theme="xcode"
-                onChange={setUserCode}
-                fontSize={16}
+                theme="monokai"
+                showGutter={true}
+                wrapEnabled={true}
+                highlightActiveLine={true}
                 editorProps={{ $blockScrolling: true }}
+                enableBasicAutocompletion={true}
+                enableLiveAutocompletion={true}
+                onChange={(setUserCode)}
+                value={userCode}
+                setOptions={{
+                    enableSnippets: true,
+                    // fontFamily: "tahoma",
+                    fontSize: "12pt"
+                }}
             />
             <button onClick={() => {console.log(userCode)}}>
                 console log

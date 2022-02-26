@@ -12,47 +12,26 @@ import Userinfo from './Userinfo'
 import Sidemenu from './Sidemenu'
 import Signout from './Signout'
 import Reduce from './Reduce'
-let DecreaseBar = keyframes`
-    0% { width: 230px; }
-    100% { width: 100px; }
-`
-let IncreaseBar = keyframes`
-    0% { width: 100px; }
-    100% { width: 230px; }
-`
 let Main = styled.div `
-    position: fixed;
-    height: 100%;
-    width: 230px;
-    clear: both;
+    position: relative;
+    height: 100vh;
+    width: ${props=>props.open ? "230px" : "100px"};
+    transition : 0.4s;
+    display: block;
     float: left;
     border-right: 1px solid #b9b9ff;
     background-color: #c2ffcb;
-    animation: ${props => props.open ? IncreaseBar : DecreaseBar};
-    animation-duration: ${props => props.run ? '0.4s' : '0.0s'};
-    animation-fill-mode: forwards;
-`
-let IncreaseLine = keyframes`
-    0% { width: 100%; }
-    100% { width: 80%; }
-`
-let DecreaseLine = keyframes`
-    0% { width: 80%; }
-    100% { width: 100%; }
 `
 let BorderLine = styled.hr`
     border: none;
     height: 2px;
-    align: center;
-    width: 80%;
+    width: ${props => props.open ? '80%' : '100%'};
     background-color: #67b771;
-    animation: ${props => props.open ? IncreaseLine : DecreaseLine};
-    animation-duration: inherit;
-    animation-fill-mode: forwards;
+    transition : 0.4s;
 `
 export const sideBarState = atom({
     key: 'openState',
-    default: true
+    default: false
 })
 function Sidebar(props) {
     let [menus, setMenus] = useState(new Array)
@@ -86,7 +65,6 @@ function Sidebar(props) {
             }
             <Signout/>
         </Main>
-
     )
 }
 export default Sidebar
