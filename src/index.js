@@ -8,15 +8,12 @@ import Testpage from './components/Testpage'
 import Signpage from './components/signpage/Signpage';
 import Debuggerpage from './components/debuggerpage/Debugger';
 import Calendar from './components/Calendar/Calendar.js'
+import Test2 from './components/Test2'
 
 import axios from 'axios';
 
 import {
   RecoilRoot,
-  atom,
-  selector,
-  useRecoilState,
-  useRecoilValue,
 } from 'recoil'
 
 axios.post('/ssr/userinfo')
@@ -44,6 +41,7 @@ axios.post('/ssr/userinfo')
             <Route path='/main'> <Testpage/> </Route>
             <Route path='/debugger'> <Debuggerpage/> </Route>
             <Route path='/calendar'> <Calendar/> </Route>
+            <Route path='/test2'> <Test2/> </Route>
             <Route exact path='/sign'> <Signpage/> </Route>
           </RecoilRoot>
         </BrowserRouter>

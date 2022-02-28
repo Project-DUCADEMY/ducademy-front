@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import * as helper from './CalendarHelper'
 import { useRecoilValue } from 'recoil'
-import { calendarMetaData } from './Calendar'
+import { calendarDatas } from './Calendar'
 let Main = styled.div`
     width: calc(100%/7 - 2px);
     height: calc(20% - 2px);
@@ -20,10 +20,11 @@ let Schedule = styled.div`
     margin: 2px;
 `
 function Day(props) {
-    let metaData = useRecoilValue(calendarMetaData)
+    let metaData = useRecoilValue(calendarDatas)
+    let axisMonth = metaData.axis.getMonth()
     return (
         <Main
-        axisMonth = {metaData.axis.getMonth() === props.date.getMonth() + 1}>
+        axisMonth = {axisMonth === props.date.getMonth()}>
             <Date>
                 {props.date.getDate()}
             </Date>
@@ -35,7 +36,6 @@ function Day(props) {
                         </Schedule>
                     )
                 })
-            
             }
             {/* <Schedule>
                 리액트

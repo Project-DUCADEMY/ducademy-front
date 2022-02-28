@@ -1,7 +1,6 @@
 export function setCookie(name, value, exp) {
     let date = new Date();
     date.setTime(date.getTime() + exp);
-    //document.cookie = name + '=' + value + ';expires=' + date.toUTCString() + ';path=/';
     document.cookie = `${name}=${value};expires=${date.toUTCString()};path=/`
 };
 export function getCookie(name) {
