@@ -3,12 +3,12 @@ import ReactDOM from 'react-dom';
 import './assets/css/index.css';
 import { Route,BrowserRouter, Redirect } from 'react-router-dom'
 
-import Sidebar from './components/sidebar/Sidebar';
-import Testpage from './components/Testpage'
-import Signpage from './components/signpage/Signpage';
-import Debuggerpage from './components/debuggerpage/Debugger';
+import Sidebar from './components/sidebar/Sidebar.js';
+import Testpage from './components/Testpage.js'
+import Signpage from './components/signpage/Signpage.js';
+import Debuggerpage from './components/debuggerpage/Debugger.js';
 import Calendar from './components/Calendar/Calendar.js'
-import Test2 from './components/Test2'
+import Test2 from './components/Test2.js'
 
 import axios from 'axios';
 
