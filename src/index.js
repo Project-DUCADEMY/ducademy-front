@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import './assets/css/index.css';
 import { Route,BrowserRouter, Redirect } from 'react-router-dom'
 
-import Sidebar from './components/sidebar/Sidebar.js';
+import Sidebar from './components/Sidebar/Sidebar.js';
 import Testpage from './components/Testpage.js'
 import Signpage from './components/signpage/Signpage.js';
 import Debuggerpage from './components/debuggerpage/Debugger.js';
