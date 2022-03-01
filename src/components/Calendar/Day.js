@@ -9,6 +9,7 @@ let Main = styled.div`
     margin: 1px;
     border-radius: 5px;
     float: left;
+
 `
 let Date = styled.div`
     margin-left: 4px;
@@ -18,25 +19,32 @@ let Schedule = styled.div`
     font-size: 12px;
     background-color: #dafac2;
     margin: 2px;
+    cursor: pointer;
 `
+function redirectNewPage(link) {
+    window.open(link, '_blank')
+}
+
 function Day(props) {
     let metaData = useRecoilValue(calendarDatas)
     let axisMonth = metaData.axis.getMonth()
     return (
         <Main
-        axisMonth = {axisMonth === props.date.getMonth()}>
+            axisMonth = {axisMonth === props.date.getMonth()}>
             <Date>
                 {props.date.getDate()}
             </Date>
             {
                 props.schedule.map((element) => {
                     return(
-                        <Schedule>
+                        <Schedule
+                            onClick={() => redirectNewPage(element.workLink)}>
                             {element.title}
                         </Schedule>
                     )
                 })
             }
+            
             {/* <Schedule>
                 리액트
             </Schedule> */}

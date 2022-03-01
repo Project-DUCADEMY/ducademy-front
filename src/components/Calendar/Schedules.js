@@ -52,29 +52,5 @@ export async function loadSchedules() {
         })
         return responses
     })
-    
-    // .then(result => {
-    //     result.forEach(element => {
-    //         axios.get(
-    //             `https://classroom.googleapis.com/v1/courses/${element}/courseWork?key=${APIkey}`,{
-    //                 headers: {
-    //                     Authorization: 'Bearer ' + google_token
-    //                 }
-    //             }
-    //         )
-    //         .then(result => {
-    //             try {
-    //                 let newUserSchedule = new Array()
-    //                 result.data.courseWork.forEach(element =>{
-    //                     newUserSchedule.push(element)
-    //                 })
-    //                 schedules = schedules.concat(newUserSchedule)
-    //                 //console.log(schedules)
-    //             } catch(error) {
-    //                 console.log(error.message)
-    //             }
-    //         })
-    //     })
-    // })
-    console.log(classroomIds)
+
 }

@@ -2,7 +2,6 @@ import styled from 'styled-components';
 import Day from './Day'
 import * as helper from './CalendarHelper'
 import {atom, useRecoilValue, useRecoilState, useResetRecoilState, RecoilState } from 'recoil'
-import googleAPI from '../../assets/dummy/classroomApi.js'
 import { loadSchedules } from './Schedules.js'
 
 let Main = styled.div`
@@ -52,6 +51,7 @@ function Calendar() {
         console.log('test')
         loadSchedules().then(result => {
             setUserSchedule(result)
+            //console.log(result)
         })
     }
     //console.log(userSchedulesValue)
@@ -71,7 +71,8 @@ function Calendar() {
             try {
                 schedules.push({
                     dueDate: new Date(element.dueDate.year, element.dueDate.month - 1, element.dueDate.day),
-                    title: element.title
+                    title: element.title,
+                    workLink: element.alternateLink
                 })
             } catch(ex) {
                 console.log(ex)
