@@ -51,7 +51,6 @@ function Calendar() {
         console.log('test')
         loadSchedules().then(result => {
             setUserSchedule(result)
-            //console.log(result)
         })
     }
     //console.log(userSchedulesValue)

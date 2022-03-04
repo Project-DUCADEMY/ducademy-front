@@ -14,6 +14,7 @@ async function getClassroomsId() {
     // console.log(classrooms)
     let classroomsId = new Array()
     classrooms.data.courses.forEach(element => {
+        //console.log(element)
         classroomsId.push(element.id)
     });
     return classroomsId
@@ -36,10 +37,11 @@ export async function loadSchedules() {
             ).then(resolve).catch(resolve)
         }))
     })
-    
+
     
     return Promise.all(getWorks)
     .then(result => {
+        console.log(result)
         let responses = new Array()
         result.forEach((element) => {
             try {

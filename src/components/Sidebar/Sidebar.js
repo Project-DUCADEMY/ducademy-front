@@ -38,8 +38,8 @@ function Sidebar(props) {
     let [open, setOpen] = useRecoilState(sideBarState)
     let [runAnime, setRunAnime] = useState(false)
     useEffect(() => {
-        axios.post('/ssr/menus').
-        then((result) => { 
+        axios.post('/ssr/menus')
+        .then((result) => { 
             setMenus(result.data)
             setTimeout(() => {setRunAnime(true)}, 300)
         })

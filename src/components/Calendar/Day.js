@@ -14,11 +14,16 @@ let Main = styled.div`
 let Date = styled.div`
     margin-left: 4px;
     margin-top: 5px;
+    height: 20%;
 `
 let Schedule = styled.div`
-    font-size: 12px;
+    font-size: 80%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
     background-color: #dafac2;
     margin: 2px;
+    height: 20%;
     cursor: pointer;
 `
 function redirectNewPage(link) {
