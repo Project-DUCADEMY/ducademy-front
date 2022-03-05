@@ -16,7 +16,7 @@ const pc_config = {
 		},
 	],
 };
-const SOCKET_SERVER_URL = 'http://ec2-3-39-21-152.ap-northeast-2.compute.amazonaws.com:8080';
+const SOCKET_SERVER_URL = 'http://ec2-3-39-21-152.ap-northeast-2.compute.amazonaws.com:5000';
 
 const App = () => {
 	const socketRef = useRef();
