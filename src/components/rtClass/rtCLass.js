@@ -24,7 +24,7 @@ const App = () => {
 	const localVideoRef = useRef(null);
 	const localStreamRef = useRef();
 	const [users, setUsers] = useState([]);
-
+	console.log(navigator.mediaDevices.getUserMedia | navigator.getUserMedia)
 	const getLocalStream = useCallback(async () => {
 		try {
 			const localStream = await navigator.mediaDevices.getUserMedia({

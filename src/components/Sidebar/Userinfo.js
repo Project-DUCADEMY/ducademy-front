@@ -38,7 +38,7 @@ const Role = styled.div`
     top: 30px;
 `
 const errorImgLink = (e) => {
-    e.target.src = '/user-directory/profile-picture/default.jpeg'
+    e.target.src = '/img/default.jpeg'
 }
 function Userinfo(props) {
     let open = useRecoilValue(sideBarState)

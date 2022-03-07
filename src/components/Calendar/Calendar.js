@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import Day from './Day'
 import * as helper from './CalendarHelper'
-import {atom, useRecoilValue, useRecoilState, useResetRecoilState, RecoilState } from 'recoil'
+import {atom, useRecoilState } from 'recoil'
 import { loadSchedules } from './Schedules.js'
 
 let Main = styled.div`
@@ -48,9 +48,11 @@ function Calendar() {
     let [metaData, setMetaData] = useRecoilState(calendarDatas)
     let [userSchedulesValue, setUserSchedule] = useRecoilState(userSchedules)
     if(userSchedulesValue.length == 0) {
-        console.log('test')
         loadSchedules().then(result => {
             setUserSchedule(result)
+        })
+        .catch(error => {
+            console.error(error.response)
         })
     }
     //console.log(userSchedulesValue)

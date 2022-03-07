@@ -12,6 +12,8 @@ import Userinfo from './Userinfo'
 import Sidemenu from './Sidemenu'
 import Signout from './Signout'
 import Reduce from './Reduce'
+
+import dummy from './../../assets/dummy/menu'
 let Main = styled.div `
     position: relative;
     height: 100vh;
@@ -33,18 +35,19 @@ export const sideBarState = atom({
     key: 'openState',
     default: false
 })
+
 function Sidebar(props) {
-    let [menus, setMenus] = useState(new Array)
+    let [menus, setMenus] = useState(dummy)
     let [open, setOpen] = useRecoilState(sideBarState)
     let [runAnime, setRunAnime] = useState(false)
-    useEffect(() => {
-        axios.post('/ssr/menus')
-        .then((result) => { 
-            setMenus(result.data)
-            setTimeout(() => {setRunAnime(true)}, 300)
-        })
-        .catch ((result) => { console.log(result) })
-    }, [])
+    // useEffect(() => {
+    //     axios.post('/ssr/menus')
+    //     .then((result) => { 
+    //         setMenus(result.data)
+    //         setTimeout(() => {setRunAnime(true)}, 300)
+    //     })
+    //     .catch ((result) => { console.log(result) })
+    // }, [])
     return (
         <Main 
             open={open}
