@@ -34,10 +34,10 @@ function Testpage(props) {
                 responseType={"id_token"}
                 onSuccess={onSuccess}
                 onFailure={onFailure}
-                scope={[
+                scope={
                     'https://www.googleapis.com/auth/classroom.courses',
                     'https://www.googleapis.com/auth/classroom.coursework.me'
-                ]}/>
+                }/>
         </Main>
     )
 }

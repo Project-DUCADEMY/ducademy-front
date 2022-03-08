@@ -25,7 +25,6 @@ function Signpage(props) {
     }
 
     const login = (e) => {
-        console.log(inputEmail, inputPw)
         axios.post( 
             '/authenticate/login', 
             { 
@@ -33,6 +32,7 @@ function Signpage(props) {
                 password: inputPw,
             })
             .then( (response) => {
+                window.location.replace('/')
                 console.log(response.status);
             })
             .catch( console.log )
