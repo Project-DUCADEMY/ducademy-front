@@ -33,7 +33,7 @@ function Signpage(props) {
         setInputPwCh(e.target.value)
     }
 
-    const Join = (e) => {
+    const join = (e) => {
         axios.post( 
             '/authenticate/join', 
             { 
@@ -67,13 +67,13 @@ function Signpage(props) {
                 </div>
                 <div>
                     <label>Password</label>
-                    <input className={style.input} type='text' value={inputPw} onChange={handleInputPw} placeholder="Password"/>
+                    <input className={style.input} type='password' value={inputPw} onChange={handleInputPw} placeholder="Password"/>
                 </div>
                 <div>
                     <label>Password Check</label>
-                    <input className={style.input} type='text' value={inputPwCh} onChange={handleInputPwCh} placeholder="Password Check"/>
+                    <input className={style.input} type='password' value={inputPwCh} onChange={handleInputPwCh} placeholder="Password Check"/>
                 </div>
-                <button className={style.button} onClick={(e)=>{e.preventDefault()}}>Register</button>
+                <button className={style.button} onClick={join}>Register</button>
             </form>
             <footer></footer>
         </div>
