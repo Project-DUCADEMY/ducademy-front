@@ -37,12 +37,11 @@ const AppRouter = () => {
             setLoading(false);
         })
         .catch(error => {
-            setLoading(false);
+            // setLoading(false);
             if(error.response.status === 401) {
                 setUserinfo({
                     isAuthenticated: false,
                 })
-                
             }
             else {
                 console.error(error)
