@@ -28,7 +28,7 @@ function Signpage(props) {
         axios.post( 
             '/authenticate/login', 
             { 
-                username: inputEmail,
+                email: inputEmail,
                 password: inputPw,
             })
             .then( (response) => {

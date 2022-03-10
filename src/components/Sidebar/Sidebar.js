@@ -10,7 +10,7 @@ import {
 
 import Userinfo from './Userinfo'
 import Sidemenu from './Sidemenu'
-import Signout from './Signout'
+import Logout from './Logout'
 import Reduce from './Reduce'
 
 import dummy from './../../assets/dummy/menu'
@@ -21,12 +21,12 @@ let Main = styled.div `
     transition : 0.4s;
     display: block;
     float: left;
-    border-right: 1px solid #b9b9ff;
-    background-color: #c2ffcb;
+//  border-right: 1px solid #b9b9ff;
+//  background-color: rgba(0, 0, 0, 0.03);
 `
 let BorderLine = styled.hr`
     border: none;
-    height: 2px;
+    height: 1px;
     width: ${props => props.open ? '80%' : '100%'};
     background-color: #67b771;
     transition : 0.4s;
@@ -54,8 +54,8 @@ function Sidebar(props) {
             run={runAnime}
         >
             <Userinfo userinfo={ props.userinfo }></Userinfo>
-            <BorderLine open={ open }/>
-            <Reduce set={() => { setOpen(!open) }}/>
+            {/* <BorderLine open={ open }/> */}
+            {/* <Reduce set={() => { setOpen(!open) }}/> */}
             { 
                 menus.map( (element, idx) => {
                     return (
@@ -66,7 +66,7 @@ function Sidebar(props) {
                     )
                 })
             }
-            <Signout/>
+            <Logout/>
         </Main>
     )
 }

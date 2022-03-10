@@ -41,7 +41,6 @@ export async function loadSchedules() {
     
     return Promise.all(getWorks)
     .then(result => {
-        console.log(result)
         let responses = new Array()
         result.forEach((element) => {
             try {

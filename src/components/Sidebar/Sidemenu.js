@@ -1,26 +1,33 @@
 import styled, { keyframes } from 'styled-components';
+import { useState } from 'react';
 import { Link } from 'react-router-dom'
 import { DisplayText, HideText } from './HideText';
 import { useRecoilState } from 'recoil';
 import { sideBarState } from './Sidebar';
 const Main = styled.div`
+    transition-duration: 0.2s;
     height: 8%;
-    width: auto;
-    margin-left: 20px;
-    margin-right: 20px;
+    width: ${props => props.isOver ? '180%' : '60%'};
+    margin: 10px 20px 10px 20px;
+    border-radius: 10px;
+    :hover {
+        background-color: rgba(200, 220, 200, 0.6);
+        cursor: pointer;
+    }
+    z-index: 99;
 `
 const Content = styled.div`
     float: right;
     position: relative;
-    top: 5px;
     vertical-align: middle;
-    position: relative;
     left: -8px;
     top: 50%;
     transform:translateY(-50%);
-    animation: ${props => props.open ? DisplayText : HideText};
-    animation-duration: 0.4s;
-    animation-fill-mode: forwards;
+    transition-duration: 0.1s;
+    transition-delay: 0.1s;
+    opacity: ${props => props.isOver ? '1' : '0'};
+    display: ${props => props.isOver ? '0' : 'none'};
+    //display: none;
 `
 
 const Icon = styled.img`
@@ -31,27 +38,23 @@ const Icon = styled.img`
     top: 50%;
     transform:translateY(-50%);
 `
-const Border = styled.div`
-    width: 100%;
-    height: 100%;
-    border-radius: 10px;
-    :hover {
-        transition-duration: 0.2s;
-        background-color: ${props => props.color};
-    }
-    margin-top: 10px;
-`
 function Sidemenu (props) {
     let [open, setOpen] = useRecoilState(sideBarState)
+    const [getOver, setOver] = useState(false)
     return (
-        <Main>
-            <Link to = { props.info.link }>
-                <Border color={ props.info.background }>
-                    <Icon open={open} src={ props.info.iconSrc }></Icon>
-                    <Content open={open}>{ props.info.content }</Content>
-                </Border>
-            </Link>
-        </Main>
+        <Link to={props.info.link}>
+            <Main
+                onMouseOver={() => {setOver(true)}}
+                onMouseOut={()  => {setOver(false)}}
+                isOver={getOver}
+                >
+                <Icon src={ props.info.iconSrc }></Icon>
+                <Content
+                    isOver={getOver}>
+                    { props.info.content }
+                </Content>
+            </Main>
+        </Link>
     )
 } 
 export default Sidemenu

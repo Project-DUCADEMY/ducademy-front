@@ -8,8 +8,14 @@ let Main = styled.div`
     height: 500px;
     width: 700px;
     float: left;
+    position: relative;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 100px;
     background-color: wheat;
     border-radius: 5px;
+    z-index: -1;
 `
 class DaysArray {
     constructor(dateData) {

@@ -19,7 +19,7 @@ let Main = styled.div`
 function Signout_button(props) {
     return (
         <Main onClick={ () => {
-            axios.post( '/sign/out')
+            axios.post( '/authenticate/logout')
                 .then( () => {
                     window.location.replace("/")
                 })

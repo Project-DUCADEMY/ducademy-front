@@ -7,6 +7,7 @@ import style from './assets/css/Login.module.css'
 import dummy from './assets/dummy/userinfo'
 
 import Sidebar from './components/Sidebar/Sidebar.js';
+import Mainpage from './components/Mainpage/Mainpage.js';
 import Testpage from './components/Testpage.js'
 import Loginpage from './components/Sign/Loginpage.js';
 import Joinpage from './components/Sign/Joinpage.js';
@@ -26,9 +27,9 @@ const AppRouter = () => {
     const [loading, setLoading] = useRecoilState(Loading);
     const error = useRecoilValue(ErrorRecoil);
     useEffect(() => {
-        console.log('test')
         axios.post('/user/userinfo')
         .then(response => {
+            console.log(response)
             setUserinfo({
                 isAuthenticated: true,
                 userPage: dummy
@@ -36,11 +37,12 @@ const AppRouter = () => {
             setLoading(false);
         })
         .catch(error => {
+            setLoading(false);
             if(error.response.status === 401) {
                 setUserinfo({
                     isAuthenticated: false,
                 })
-                setLoading(false);
+                
             }
             else {
                 console.error(error)
@@ -63,11 +65,11 @@ const AppRouter = () => {
                 <BrowserRouter>
                     <Sidebar/>
                     <Switch>
-                        <Route exact path="/"> <Testpage/> </Route>
+                        <Route exact path="/"> <Mainpage/> </Route>
                         <Route path='/debugger'> <Debuggerpage/> </Route>
                         <Route path='/calendar'> <Calendar/> </Route>
                         <Route path='/rtClass'> <RtClass/> </Route>
-                        <Route path='/test2'> <Test2/> </Route>
+                        <Route path='/test2'> <Testpage/> </Route>
                         <Route> <Redirect to="/"/> </Route>
                     </Switch>
                 </BrowserRouter>)
