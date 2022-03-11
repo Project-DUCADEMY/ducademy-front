@@ -3,16 +3,13 @@ import Day from './Day'
 import * as helper from './CalendarHelper'
 import {atom, useRecoilState } from 'recoil'
 import { loadSchedules } from './Schedules.js'
-import { useEffect } from 'react'
+import { useEffect, useState, Fragment } from 'react'
+import LoadingPage from '../Loadingpage'
 
-let Main = styled.div`
+let CalendarBody = styled.div`
     height: 500px;
     width: 700px;
     float: left;
-    position: relative;
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
     top: 100px;
     background-color: wheat;
     border-radius: 5px;
@@ -54,13 +51,16 @@ export const userSchedules = atom({
 function Calendar() {
     let [metaData, setMetaData] = useRecoilState(calendarDatas)
     let [userSchedulesValue, setUserSchedule] = useRecoilState(userSchedules)
+    let [getLoading, setLoading] = useState(true)
 
     useEffect(() => {
         loadSchedules().then(result => {
             setUserSchedule(result)
+            setLoading(false)
         })
         .catch(error => {
             console.error(error.response)
+            setLoading(false)
         })
     }, []);
 
@@ -89,11 +89,15 @@ function Calendar() {
         }
     })
     return (
-        <Main>
+        <>
+        <CalendarBody>
             {
+                getLoading ? 
+                <LoadingPage/>
+                :
                 daysArray.map((row, rowIdx) => {
                     return(
-                    <>
+                    <Fragment key={rowIdx}>
                         {
                             row.map((element, elementIdx) => {
                                 let thisSchedule = new Array()
@@ -106,19 +110,20 @@ function Calendar() {
                                 })
                                 return (<Day 
                                 date = {element.date}
-                                key = {rowIdx * 10 + elementIdx}
+                                key = {rowIdx + elementIdx}
                                 schedule = {thisSchedule}>
                                 </Day>)
                             })
                         }
-                    </>
+                    </Fragment>
                     )
                 })
             }
+        </CalendarBody>
             <button onClick={() => changeMonth(false)}>LastMonth</button>
             <button onClick={() => changeMonth(true)}>NextMonth</button>
             <div>{metaData.axis.getFullYear()}/{metaData.axis.getMonth() + 1}</div>
-        </Main>
+        </>
     )
 }
 

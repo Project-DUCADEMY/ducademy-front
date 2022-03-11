@@ -40,9 +40,10 @@ function Day(props) {
                 {props.date.getDate()}
             </Date>
             {
-                props.schedule.map((element) => {
+                props.schedule.map((element, idx) => {
                     return(
                         <Schedule
+                            key={idx}
                             onClick={() => redirectNewPage(element.workLink)}>
                             {element.title}
                         </Schedule>

@@ -43,12 +43,13 @@ export async function loadSchedules() {
     .then(result => {
         let responses = new Array()
         result.forEach((element) => {
+            //console.log(element.data.courseWork.length)
             try {
                 element.data.courseWork.forEach(work => {
                     responses.push(work)
                 })
             } catch (error) {
-                console.log(error.message)
+                console.log(error.message, element)
             }
         })
         return responses

@@ -2,7 +2,7 @@
     justify-content: center;
 }
 .loader {
-    position: absolute;
+    position: relative;
     left: 50%;
     top: 50%;
     z-index: 1;
