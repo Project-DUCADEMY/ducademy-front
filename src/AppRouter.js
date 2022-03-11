@@ -29,7 +29,6 @@ const AppRouter = () => {
     useEffect(() => {
         axios.post('/user/userinfo')
         .then(response => {
-            console.log(response)
             setUserinfo({
                 isAuthenticated: true,
                 userPage: dummy
