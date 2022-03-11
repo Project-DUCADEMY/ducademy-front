@@ -3,6 +3,7 @@ import Day from './Day'
 import * as helper from './CalendarHelper'
 import {atom, useRecoilState } from 'recoil'
 import { loadSchedules } from './Schedules.js'
+import { useEffect } from 'react'
 
 let Main = styled.div`
     height: 500px;
@@ -53,15 +54,16 @@ export const userSchedules = atom({
 function Calendar() {
     let [metaData, setMetaData] = useRecoilState(calendarDatas)
     let [userSchedulesValue, setUserSchedule] = useRecoilState(userSchedules)
-    if(userSchedulesValue.length == 0) {
+
+    useEffect(() => {
         loadSchedules().then(result => {
             setUserSchedule(result)
         })
         .catch(error => {
             console.error(error.response)
         })
-    }
-    //console.log(userSchedulesValue)
+    }, []);
+
     const changeMonth = function(next) {
         setMetaData({
             axis: new Date(metaData.axis.getFullYear(),
