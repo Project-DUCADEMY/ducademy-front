@@ -5,6 +5,7 @@ import {atom, useRecoilState } from 'recoil'
 import { loadSchedules } from './Schedules.js'
 import { useEffect, useState, Fragment } from 'react'
 import LoadingPage from '../Loadingpage'
+import ErrorPage from './Errorpage'
 
 const MainContainer = styled.div`
     z-index: 0;
@@ -69,7 +70,8 @@ export const userSchedules = atom({
 function Calendar() {
     let [metaData, setMetaData] = useRecoilState(calendarDatas)
     let [getUserSchedule, setUserSchedule] = useRecoilState(userSchedules)
-    let [getLoading, setLoading] = useState(true)
+    const [getLoading, setLoading] = useState(true)
+    const [getError, setError] = useState(false)
 
     useEffect(() => {
         loadSchedules().then(result => {
@@ -78,7 +80,8 @@ function Calendar() {
         })
         .catch(error => {
             console.error(error.response)
-            setLoading(true)
+            setLoading(false)
+            setError(true)
         })
     }, []);
 
@@ -109,8 +112,8 @@ function Calendar() {
             {
                 getLoading ? 
                 <LoadingPage/>
-                :
-                daysArray.map((row, rowIdx) => {
+                : getError ? <ErrorPage/> 
+                : daysArray.map((row, rowIdx) => {
                     return(
                     <Fragment key={rowIdx}>
                         {

@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { useState } from 'react';
 import { Link } from 'react-router-dom'
+
 const Main = styled.div`
     transition-duration: 0.2s;
     border-radius: 10px;
@@ -12,7 +13,7 @@ const Main = styled.div`
     margin-top: 10px;
     border-radius: 10px;
     :hover {
-        background-color: rgba(200, 220, 200, 0.6);
+        background-color: rgba(100, 220, 100, 0.8);
         cursor: pointer;
     }
     z-index: 99;
@@ -21,11 +22,13 @@ const Content = styled.div`
     position: ${props => props.isOver ? 'relative' : 'absolute'};
     transition: 0.2s;
     float: right;
-    top: 23px;
+    top: 30px;
     right: 10px;
     opacity: ${props => props.isOver ? '1' : '0'};
     overflow: hidden;
     display: ${props => props.isOver ? '0' : 'none'};
+    font-size: 18px;
+    font-family: League Spartan;
 `
 
 const Icon = styled.img`

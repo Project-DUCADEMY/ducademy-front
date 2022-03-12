@@ -1,22 +1,36 @@
 import styled from 'styled-components';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import React from 'react'
 
 import Userinfo from './Userinfo'
 import Sidemenu from './Sidemenu'
 import Logout from './Logout'
 
+import '../../assets/fonts/LeagueSpartan.css'
+
 import dummy from '../../assets/dummy/menu'
-let SidebarContainer = styled.div `
+const SidebarMargin = styled.div`
+    position: relative;
+    float: left;
     height: 100vh;
-    width: 80px;;
+    width: 80px;
+    margin-right: 10px;
+    z-index: 100;
+`
+const SidebarSkin = styled.div`
+    position: fixed;
+    height: 100vh;
+    width: 80px;
+    z-index: 100;
+`
+let SidebarContainer = styled.div `
+    height: 100%;
+    width: 100%;
     margin-right: 20px;
     transition : 0.4s;
-    display: block;
-    float: left;
     display: flex;
     flex-direction: column;
-    background-color: rgba(50, 165, 50, 0.1);
+    background-color: rgba(80, 240, 120, 0.8);
     z-index: 100;
 `
 
@@ -24,6 +38,8 @@ let SidebarContainer = styled.div `
 function Sidebar(props) {
     let [menus, setMenus] = useState(dummy)
     return (
+        <SidebarMargin>
+        <SidebarSkin>
         <SidebarContainer>
             <Userinfo userinfo={ props.userinfo }></Userinfo>
             {/* <BorderLine open={ open }/> */}
@@ -40,55 +56,8 @@ function Sidebar(props) {
             }
             <Logout/>
         </SidebarContainer>
+        </SidebarSkin>
+        </SidebarMargin>
     )
 }
 export default Sidebar
-
-// export default class Sidebar extends React.Component {
-//     state = {
-//       persons: []
-//     }
-    
-//     componentDidMount() {
-//         axios.post('/ssr/menus').
-//         then( (result) => {
-//             const persons = result.data;
-//             this.setState({ persons });
-//             console.log(num++)
-//         })
-//         .catch ( (result) => {
-//             console.log(result)
-//         })
-//     }
-  
-//     render() {
-//         return (
-//         <Main>
-//             <Userinfo userinfo = { this.props.userinfo }></Userinfo>
-//             <BorderLine/>
-//             { 
-//                 this.state.persons.map( (element, idx) => {
-//                     return (
-//                         <Sidemenu
-//                             icon = { element.iconSrc }
-//                             content = { element.content }
-//                             link = { element.link }
-//                             key = { idx }
-//                         />
-//                     )
-//                 })
-//             }
-//             <button onClick={ () => { 
-//                 axios.post( 
-//                 '/sign/out', 
-//                 {
-//                 })
-//                 .then( () => {
-//                     window.location.replace("/")
-//                 })
-//             }
-//             }>Sign out</button>
-//         </Main>
-//         )
-//     }
-//   }

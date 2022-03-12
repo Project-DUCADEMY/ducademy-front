@@ -13,6 +13,7 @@ let Main = styled.div`
         transition-duration: 0.2s;
         background-color: rgba(230, 70, 0, 0.5);
     }
+    font-family: League Spartan;
 `
 function Signout_button() {
     return (

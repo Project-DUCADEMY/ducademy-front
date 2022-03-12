@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import * as helper from './CalendarHelper'
 import { useRecoilValue } from 'recoil'
 import { calendarDatas } from './Calendar'
 import { DayOfWeek } from './CalendarHelper'

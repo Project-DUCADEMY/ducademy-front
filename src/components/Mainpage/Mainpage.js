@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import Calendar from '../Calendar/Calendar'
 import SchoolMeal from '../SchoolMeal/SchoolMeal'
+import TimeTable from '../TimeTable/TimeTable';
 
 const MainContainer = styled.div`
     z-index: -99;
@@ -12,6 +13,11 @@ const MainContainer = styled.div`
 const Mainpage = () => {
     return(
         <MainContainer>
+            <SchoolMeal/>
+            <Calendar/>
+            <TimeTable/>
+            <SchoolMeal/>
+            <Calendar/>
             <SchoolMeal/>
             <Calendar/>
         </MainContainer>
