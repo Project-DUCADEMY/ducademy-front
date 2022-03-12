@@ -3,13 +3,15 @@ import {atom, useRecoilState } from 'recoil'
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 import { niesAPIkey } from '../config/config.js'
+import style from '../../assets/css/SchoolMeal.module.css'
 
 let Main = styled.div`
 `
 
 function SchoolMeal() {
     let [getSchoolMeal, setSchoolMeal] = useState([])
-    let date = '20220311'
+    let date = '20220310'
+    let menu = ''
     useEffect(() => {
         axios.post(`https://open.neis.go.kr/hub/mealServiceDietInfo?KEY=${niesAPIkey}&Type=json&ATPT_OFCDC_SC_CODE=D10&SD_SCHUL_CODE=7240454&MLSV_YMD=${date}`)
         .then((response) => {
@@ -24,15 +26,19 @@ function SchoolMeal() {
     }, []);
     return (
         <Main>
+            <div className={style.container}>
             {
                 getSchoolMeal.map(element => {
-                    return element.DDISH_NM
+                    menu = element.DDISH_NM
+                    menu = menu.replaceAll('*', '').replaceAll('<br/>', '').replaceAll('\/[1-9.]+\/', ', ')
+                    return <span>{menu}</span>
                 })
             }
+            </div>
+
+
             {
-                getSchoolMeal.forEach(element => {
-                    console.log(element.DDISH_NM)
-                })
+                console.log(getSchoolMeal)
             }
         </Main>
     )
