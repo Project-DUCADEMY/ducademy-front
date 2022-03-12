@@ -2,56 +2,29 @@ import styled from 'styled-components';
 import { useState, useEffect } from 'react';
 import React from 'react'
 
-import {
-    atom,
-    useRecoilState,
-} from 'recoil';
-
 import Userinfo from './Userinfo'
 import Sidemenu from './Sidemenu'
 import Logout from './Logout'
 
 import dummy from '../../assets/dummy/menu'
-let Main = styled.div `
-    position: relative;
+let SidebarContainer = styled.div `
     height: 100vh;
-    width: ${props=>props.open ? "230px" : "100px"};
+    width: 80px;;
+    margin-right: 20px;
     transition : 0.4s;
     display: block;
     float: left;
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(50, 165, 50, 0.1);
     z-index: 100;
-//  border-right: 1px solid #b9b9ff;
-//  background-color: rgba(0, 0, 0, 0.03);
 `
-let BorderLine = styled.hr`
-    border: none;
-    height: 1px;
-    width: ${props => props.open ? '80%' : '100%'};
-    background-color: #67b771;
-    transition : 0.4s;
-`
-export const sideBarState = atom({
-    key: 'openState',
-    default: false
-})
+
 
 function Sidebar(props) {
     let [menus, setMenus] = useState(dummy)
-    let [open, setOpen] = useRecoilState(sideBarState)
-    let [runAnime, setRunAnime] = useState(false)
-    // useEffect(() => {
-    //     axios.post('/ssr/menus')
-    //     .then((result) => { 
-    //         setMenus(result.data)
-    //         setTimeout(() => {setRunAnime(true)}, 300)
-    //     })
-    //     .catch ((result) => { console.log(result) })
-    // }, [])
     return (
-        <Main 
-            open={open}
-            run={runAnime}
-        >
+        <SidebarContainer>
             <Userinfo userinfo={ props.userinfo }></Userinfo>
             {/* <BorderLine open={ open }/> */}
             {/* <Reduce set={() => { setOpen(!open) }}/> */}
@@ -66,7 +39,7 @@ function Sidebar(props) {
                 })
             }
             <Logout/>
-        </Main>
+        </SidebarContainer>
     )
 }
 export default Sidebar
