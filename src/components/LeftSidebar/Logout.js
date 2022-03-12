@@ -2,25 +2,24 @@ import styled from 'styled-components';
 import axios from 'axios';
 
 let Main = styled.div`
-    transform: translateX(-50%);
-    position: absolute;
-    bottom: 10px;
-    left: 50%;
-    margin: 0px auto;
+    position: relative;
     border-radius: 10px;
-    padding: 5px 10px;
+    left: 7px;
+    width: 50%;
+    padding: 10px;
     cursor: pointer;
-    color: rgb(230, 69, 0);
+    color: rgb(230, 70, 0);
     :hover {
         transition-duration: 0.2s;
-        background-color: rgba(230, 69, 0, 0.5);
+        background-color: rgba(230, 70, 0, 0.5);
     }
+    font-family: League Spartan;
 `
-function Signout_button(props) {
+function Signout_button() {
     return (
         <Main onClick={ () => {
             axios.post( '/authenticate/logout')
-                .then( () => {
+                .then(() => {
                     window.location.replace("/")
                 })
         }}>

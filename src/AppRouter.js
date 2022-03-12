@@ -6,7 +6,8 @@ import style from './assets/css/Login.module.css'
 
 import dummy from './assets/dummy/userinfo'
 
-import Sidebar from './components/Sidebar/Sidebar.js';
+import LeftSidebar from './components/LeftSidebar/Sidebar.js';
+import RightSidebar from './components/RightSidebar/Sidebar.js'
 import Mainpage from './components/Mainpage/Mainpage.js';
 import Testpage from './components/Testpage.js'
 import Loginpage from './components/Sign/Loginpage.js';
@@ -61,7 +62,8 @@ const AppRouter = () => {
                 </div>
                 ):(
                 <BrowserRouter>
-                    <Sidebar/>
+                    <LeftSidebar/>
+                    <RightSidebar/>
                     <Switch>
                         <Route exact path="/"> <Mainpage/> </Route>
                         <Route path='/debugger'> <Debuggerpage/> </Route>

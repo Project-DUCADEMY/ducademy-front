@@ -3,20 +3,36 @@ import Day from './Day'
 import * as helper from './CalendarHelper'
 import {atom, useRecoilState } from 'recoil'
 import { loadSchedules } from './Schedules.js'
-import { useEffect } from 'react'
+import { useEffect, useState, Fragment } from 'react'
+import LoadingPage from '../Loadingpage'
+import ErrorPage from './Errorpage'
 
-let Main = styled.div`
-    height: 500px;
+const MainContainer = styled.div`
+    z-index: 0;
     width: 700px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+`
+const MonthNav = styled.div`
+    display: flex;
+`
+const CalendarBody = styled.div`
+    height: 500px;
+    width: 100%;
     float: left;
-    position: relative;
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
     top: 100px;
-    background-color: wheat;
+    background-color: rgba(100, 200, 255, 0.2);
     border-radius: 5px;
-    z-index: -1;
+    z-index: 1;
+`
+const Arrow = styled.div`
+    position: relative;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background-color: red;
+    cursor: pointer;
 `
 class DaysArray {
     constructor(dateData) {
@@ -37,7 +53,7 @@ class DaysArray {
 }
 
 
-let date = new Date(2021, 2, 1)
+let date = new Date(2022, 2, 1)
 
 export const calendarDatas = atom({
     key: 'calendarDatas',
@@ -53,14 +69,19 @@ export const userSchedules = atom({
 
 function Calendar() {
     let [metaData, setMetaData] = useRecoilState(calendarDatas)
-    let [userSchedulesValue, setUserSchedule] = useRecoilState(userSchedules)
+    let [getUserSchedule, setUserSchedule] = useRecoilState(userSchedules)
+    const [getLoading, setLoading] = useState(true)
+    const [getError, setError] = useState(false)
 
     useEffect(() => {
         loadSchedules().then(result => {
             setUserSchedule(result)
+            setLoading(false)
         })
         .catch(error => {
             console.error(error.response)
+            setLoading(false)
+            setError(true)
         })
     }, []);
 
@@ -74,51 +95,55 @@ function Calendar() {
     let daysArray = new DaysArray(metaData.axis)
     let schedules = new Array()
 
-    userSchedulesValue.forEach(element => {
-        if(element.dueDate != undefined)
-        {
-            try {
-                schedules.push({
-                    dueDate: new Date(element.dueDate.year, element.dueDate.month - 1, element.dueDate.day),
-                    title: element.title,
-                    workLink: element.alternateLink
-                })
-            } catch(ex) {
-                console.log(ex)
-            }
+    getUserSchedule.forEach(element => {
+        try {
+            schedules.push({
+                date: new Date(element.creationTime),
+                title: element.title,
+                workLink: element.alternateLink
+            })
+        } catch(ex) {
+            console.log(ex)
         }
     })
     return (
-        <Main>
+        <MainContainer>
+        <CalendarBody>
             {
-                daysArray.map((row, rowIdx) => {
+                getLoading ? 
+                <LoadingPage/>
+                : getError ? <ErrorPage/> 
+                : daysArray.map((row, rowIdx) => {
                     return(
-                    <>
+                    <Fragment key={rowIdx}>
                         {
                             row.map((element, elementIdx) => {
                                 let thisSchedule = new Array()
                                 schedules.forEach(schedule => {
-                                    if(schedule.dueDate.getYear() === element.date.getYear()
-                                    && schedule.dueDate.getMonth() === element.date.getMonth()
-                                    && schedule.dueDate.getDate() === element.date.getDate()) {
+                                    if(schedule.date.getYear() === element.date.getYear()
+                                    && schedule.date.getMonth() === element.date.getMonth()
+                                    && schedule.date.getDate() === element.date.getDate()) {
                                         thisSchedule.push(schedule)
                                     }
                                 })
                                 return (<Day 
                                 date = {element.date}
-                                key = {rowIdx * 10 + elementIdx}
+                                key = {rowIdx + elementIdx}
                                 schedule = {thisSchedule}>
                                 </Day>)
                             })
                         }
-                    </>
+                    </Fragment>
                     )
                 })
             }
+        </CalendarBody>
+        <MonthNav>
             <button onClick={() => changeMonth(false)}>LastMonth</button>
-            <button onClick={() => changeMonth(true)}>NextMonth</button>
             <div>{metaData.axis.getFullYear()}/{metaData.axis.getMonth() + 1}</div>
-        </Main>
+            <button onClick={() => changeMonth(true)}>NextMonth</button>
+        </MonthNav>
+        </MainContainer>
     )
 }
 

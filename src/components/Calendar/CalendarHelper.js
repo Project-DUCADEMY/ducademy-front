@@ -4,15 +4,15 @@ export function monthToDays(date)
     let result = new Date(date.getFullYear(), date.getMonth(), 0)
     return result.getDate()
 }
-// export function DayOfWeeToNum(DOW)
-// {
-//     for(let i = 0; i < 7; i++) {
-//         if(DayOfWeek[i] === DOW) {
-//             return i
-//         }
-//     }
-//     return -1
-// }
+export function DayOfWeeToNum(DOW) {
+    for(let i = 0; i < 7; i++) {
+        if(DayOfWeek[i] === DOW) {
+            return i
+        }
+    }
+    return -1
+}
+
 export function NextDay(date)
 {
     let result = new Date(date.getFullYear(), date.getMonth(), date.getDate() + 1)
