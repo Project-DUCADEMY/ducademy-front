@@ -49,7 +49,7 @@ export async function loadSchedules() {
                     responses.push(work)
                 })
             } catch (error) {
-                console.log(error.message, element)
+                console.log(error.message)
             }
         })
         return responses

@@ -1,5 +1,4 @@
-import styled, { keyframes } from 'styled-components';
-import axios from 'axios'
+import styled from 'styled-components';
 import { useState, useEffect } from 'react';
 import React from 'react'
 
@@ -11,9 +10,8 @@ import {
 import Userinfo from './Userinfo'
 import Sidemenu from './Sidemenu'
 import Logout from './Logout'
-import Reduce from './Reduce'
 
-import dummy from './../../assets/dummy/menu'
+import dummy from '../../assets/dummy/menu'
 let Main = styled.div `
     position: relative;
     height: 100vh;
@@ -21,6 +19,7 @@ let Main = styled.div `
     transition : 0.4s;
     display: block;
     float: left;
+    z-index: 100;
 //  border-right: 1px solid #b9b9ff;
 //  background-color: rgba(0, 0, 0, 0.03);
 `

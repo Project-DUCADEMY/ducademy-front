@@ -16,8 +16,8 @@
     border-bottom: 16px solid rgb(0, 185, 0);
     width: 120px;
     height: 120px;
-    -webkit-animation: spin 1s linear infinite;
-    animation: spin 1s linear infinite;
+    -webkit-animation: spin 1.3s ease infinite;
+    animation: spin 1.3s ease infinite;
 }
 @-webkit-keyframes spin {
     0% { -webkit-transform: rotate(0deg); }
