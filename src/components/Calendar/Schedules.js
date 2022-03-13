@@ -2,12 +2,12 @@ import axios from 'axios'
 import { APIkey } from '../config/config.js';
 import { getCookie } from '../../global_helper/cookie.js';
 
-let google_token = getCookie('google_api_access_token')
 
 async function getClassroomsId() {
+    let googleToken = getCookie('google_api_access_token')
     let classrooms = await axios.get(`https://classroom.googleapis.com/v1/courses?key=${APIkey}`,{
         headers: {
-            Authorization: 'Bearer ' + google_token,
+            Authorization: 'Bearer ' + googleToken,
             Accept: 'application/json'
         }
     })
@@ -24,6 +24,7 @@ async function getClassroomsId() {
 
 
 export async function loadSchedules() {
+    let googleToken = getCookie('google_api_access_token')
     let classroomIds = await getClassroomsId()
     let getWorks = new Array()
     classroomIds.forEach(element => {
@@ -31,7 +32,7 @@ export async function loadSchedules() {
             axios.get(
                 `https://classroom.googleapis.com/v1/courses/${element}/courseWork?key=${APIkey}`,{
                     headers: {
-                        Authorization: 'Bearer ' + google_token
+                        Authorization: 'Bearer ' + googleToken
                     }
                 }
             ).then(resolve).catch(resolve)

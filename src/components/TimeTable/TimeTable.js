@@ -33,7 +33,7 @@ const TimeTable = () => {
             schoolClass: '1'
         }, '20220310')
         .then(response => {
-            console.log(response)
+            // console.log(response)
         })
     }, []);
 

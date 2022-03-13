@@ -79,7 +79,7 @@ function Calendar() {
             setLoading(false)
         })
         .catch(error => {
-            console.error(error.response)
+//          console.error(error.response)
             setLoading(false)
             setError(true)
         })
