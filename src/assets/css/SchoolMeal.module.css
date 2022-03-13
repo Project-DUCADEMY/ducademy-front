@@ -1,0 +1,61 @@
+.container {
+    width: 500px;
+    height: 200px;
+    background-color: white;
+    border: 2px solid black;
+    border-radius: 10px;
+}
+
+.timeBlock {
+    margin-top: 10px;
+    display: flex;
+    font-size: 17.3px;
+}
+
+.menuFront {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.menuBack {
+    margin-right: 15px;
+}
+
+.breakfast {
+    color: white;
+    text-decoration: bold;
+    border-radius: 60px;
+    width: 61px;
+    height: 22px;
+    background-color: orange;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.lunch {
+    color: white;
+    text-decoration: bold;
+    border-radius: 60px;
+    width: 61px;
+    height: 22px;
+    background-color: skyblue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.dinner {
+    color: white;
+    text-decoration: bold;
+    border-radius: 60px;
+    width: 61px;
+    height: 22px;
+    background-color: plum;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
