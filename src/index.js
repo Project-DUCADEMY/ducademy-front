@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
 import './assets/css/index.css';
-import AppRouter from './AppRouter.js';
+import AppRouter from './AppRouter.jsx';
 
 import {
   RecoilRoot,

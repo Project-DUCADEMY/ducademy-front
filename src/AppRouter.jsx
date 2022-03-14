@@ -8,7 +8,7 @@ import dummy from './assets/dummy/userinfo'
 
 import LeftSidebar from './components/LeftSidebar/Sidebar.js';
 import RightSidebar from './components/RightSidebar/Sidebar.js'
-import Mainpage from './components/Mainpage/Mainpage.js';
+import Mainpage from './components/Mainpage/Mainpage.jsx';
 import Testpage from './components/Testpage.js'
 import Loginpage from './components/Sign/Loginpage.js';
 import Joinpage from './components/Sign/Joinpage.js';
@@ -48,7 +48,6 @@ const AppRouter = () => {
             } 
         })
     }, []);
-    
     return (
         error.occur ? <Errorpage/> : (
             loading ? <Test2/> : (
