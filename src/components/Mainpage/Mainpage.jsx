@@ -15,6 +15,8 @@ const Mainpage = () => {
         <MainContainer>
             <SchoolMeal/>
             <Calendar/>
+            <SchoolMeal/>
+            <Calendar/>
         </MainContainer>
     )
 }

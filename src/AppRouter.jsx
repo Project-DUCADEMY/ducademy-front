@@ -9,14 +9,14 @@ import dummy from './assets/dummy/userinfo'
 import LeftSidebar from './components/LeftSidebar/Sidebar.js';
 import RightSidebar from './components/RightSidebar/Sidebar.js'
 import Mainpage from './components/Mainpage/Mainpage.jsx';
-import Testpage from './components/Testpage.js'
-import Loginpage from './components/Sign/Loginpage.js';
-import Joinpage from './components/Sign/Joinpage.js';
-import Debuggerpage from './components/Debugger/Debugger.js';
-import Calendar from './components/Calendar/Calendar.js'
-import Test2 from './components/Loadingpage.js'
-import Errorpage from './components/Errorpage.js';
-import RtClass from './components/rtClass/rtCLass.js'
+import Testpage from './components/Testpage'
+import Loginpage from './components/Sign/Loginpage';
+import Joinpage from './components/Sign/Joinpage';
+import Debuggerpage from './components/Debugger/Debugger';
+import Calendar from './components/Calendar/Calendar'
+import Test2 from './components/Loadingpage'
+import Errorpage from './components/Errorpage';
+import RtClass from './components/rtClass/rtCLass'
 
 import User from './global_helper/user'
 import Loading from './global_helper/loading'

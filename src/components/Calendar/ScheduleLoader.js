@@ -11,7 +11,7 @@ async function getClassroomsId() {
             Accept: 'application/json'
         }
     })
-    // console.log(classrooms)
+
     let classroomsId = new Array()
     classrooms.data.courses.forEach(element => {
         //console.log(element)

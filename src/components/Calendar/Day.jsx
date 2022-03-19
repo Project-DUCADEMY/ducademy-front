@@ -1,7 +1,10 @@
 import styled from 'styled-components';
+import { Fragment, useState } from 'react';
 import { useRecoilValue } from 'recoil'
 import { calendarDatas } from './Calendar'
 import { DayOfWeek } from './CalendarHelper'
+import ScheduleDetail from './ScheduleDetail'
+import Schedule from './Schedule'
 
 const monthColor = [
     '#ffb6b3', //봄
@@ -10,10 +13,9 @@ const monthColor = [
     '#e4e6ce' //겨울
 ]
 
-let Main = styled.div`
+const Main = styled.div`
     width: calc(100%/7 - 2px);
     height: calc(20% - 2px);
-    //background-color: ${props => props.axisMonth ? 'yellowgreen' : 'skyblue'};
     background-color: ${props => props.Color};
     opacity: ${props => props.axisMonth ? 1 : 0.5};
     margin: 1px;
@@ -21,7 +23,7 @@ let Main = styled.div`
     float: left;
 `
 
-let Date = styled.div`
+const Date = styled.div`
     font-size: 18px;
     font-weight: bold;
     font-family: 'OpenSans';
@@ -30,31 +32,29 @@ let Date = styled.div`
     margin-top: 5px;
 `
 const ScheduleBox = styled.div`
-    position: relative;
+    position: static;
+    display: column;
     height: calc(100% - 30px);
     overflow-y: scroll;
+    
     &::-webkit-scrollbar {
         display: none;
         width: 4px;
     }
 `
-let Schedule = styled.div`
-    z-index: 10;
-    font-size: 14px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    background-color: #dafac2;
-    margin: 2px;
-    height: 30%;
-    cursor: pointer;
-`
+
+
 function redirectNewPage(link) {
     window.open(link, '_blank')
 }
 
-function Day(props) {
-    let metaData = useRecoilValue(calendarDatas)
+const openDetail = () => {
+
+}
+export default (props) => {
+    const metaData = useRecoilValue(calendarDatas)
+
+
     let axisMonth = metaData.axis.getMonth()
     return (
         <Main
@@ -83,8 +83,11 @@ function Day(props) {
                     return(
                         <Schedule
                             key={idx}
-                            onClick={() => redirectNewPage(element.workLink)}>
-                            {element.title}
+                            link={element.workLink}
+                            data={
+                                ({ title: element.title })
+                            }
+                        >
                         </Schedule>
                     )
                 })
@@ -96,4 +99,3 @@ function Day(props) {
     
 }
 
-export default Day

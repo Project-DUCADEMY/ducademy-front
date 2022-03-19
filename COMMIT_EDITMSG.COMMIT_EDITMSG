@@ -1,0 +1,75 @@
+Sublime git test
+
+# --------------
+# Please enter the commit message for your changes. Everything below
+# this paragraph is ignored, and an empty message aborts the commit.
+# Just close the window to accept your message.
+diff --git a/src/AppRouter.js b/src/AppRouter.jsx
+similarity index 97%
+rename from src/AppRouter.js
+rename to src/AppRouter.jsx
+index 008980e..8263660 100644
+--- a/src/AppRouter.js
++++ b/src/AppRouter.jsx
+@@ -8,7 +8,7 @@ import dummy from './assets/dummy/userinfo'
+ 
+ import LeftSidebar from './components/LeftSidebar/Sidebar.js';
+ import RightSidebar from './components/RightSidebar/Sidebar.js'
+-import Mainpage from './components/Mainpage/Mainpage.js';
++import Mainpage from './components/Mainpage/Mainpage.jsx';
+ import Testpage from './components/Testpage.js'
+ import Loginpage from './components/Sign/Loginpage.js';
+ import Joinpage from './components/Sign/Joinpage.js';
+@@ -48,7 +48,6 @@ const AppRouter = () => {
+             } 
+         })
+     }, []);
+-    
+     return (
+         error.occur ? <Errorpage/> : (
+             loading ? <Test2/> : (
+diff --git a/src/components/Mainpage/Mainpage.js b/src/components/Mainpage/Mainpage.jsx
+similarity index 75%
+rename from src/components/Mainpage/Mainpage.js
+rename to src/components/Mainpage/Mainpage.jsx
+index 75bf04f..50d6cc8 100644
+--- a/src/components/Mainpage/Mainpage.js
++++ b/src/components/Mainpage/Mainpage.jsx
+@@ -15,11 +15,6 @@ const Mainpage = () => {
+         <MainContainer>
+             <SchoolMeal/>
+             <Calendar/>
+-            <TimeTable/>
+-            <SchoolMeal/>
+-            <Calendar/>
+-            <SchoolMeal/>
+-            <Calendar/>
+         </MainContainer>
+     )
+ }
+diff --git a/src/components/rtClass/rtCLass.js b/src/components/rtClass/rtCLass.js
+index 9a68d8c..6da63ca 100644
+--- a/src/components/rtClass/rtCLass.js
++++ b/src/components/rtClass/rtCLass.js
+@@ -16,7 +16,7 @@ const pc_config = {
+ 		},
+ 	],
+ };
+-const SOCKET_SERVER_URL = 'http://ec2-3-39-21-152.ap-northeast-2.compute.amazonaws.com:5000';
++const SOCKET_SERVER_URL = 'localhost:5000';
+ 
+ const App = () => {
+ 	const socketRef = useRef();
+diff --git a/src/index.js b/src/index.js
+index 7bed3ad..7978eef 100644
+--- a/src/index.js
++++ b/src/index.js
+@@ -1,7 +1,7 @@
+ import React, { useState } from 'react';
+ import ReactDOM from 'react-dom';
+ import './assets/css/index.css';
+-import AppRouter from './AppRouter.js';
++import AppRouter from './AppRouter.jsx';
+ 
+ import {
+   RecoilRoot,

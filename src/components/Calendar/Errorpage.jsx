@@ -3,7 +3,7 @@ const Main = styled.div`
 
 `
 
-const Errorpage = () => {
-    return(<Main> Please Sign in Google</Main>);
+const Errorpage = (props) => {
+    return(<Main> {props.message} </Main>);
 }
 export default Errorpage;

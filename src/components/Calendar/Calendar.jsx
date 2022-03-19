@@ -1,11 +1,20 @@
 import styled from 'styled-components';
-import Day from './Day'
-import * as helper from './CalendarHelper'
+
 import {atom, useRecoilState } from 'recoil'
-import { loadSchedules } from './Schedules.js'
 import { useEffect, useState, Fragment } from 'react'
+
 import LoadingPage from '../Loadingpage'
 import ErrorPage from './Errorpage'
+
+import Day from './Day'
+import * as helper from './CalendarHelper'
+import { loadSchedules } from './ScheduleLoader'
+import MonthNav from './MonthNav'
+
+
+import axios from 'axios'
+import { APIkey } from '../config/config.js';
+import { getCookie } from '../../global_helper/cookie.js';
 
 const MainContainer = styled.div`
     z-index: 0;
@@ -14,9 +23,7 @@ const MainContainer = styled.div`
     align-items: center;
     flex-direction: column;
 `
-const MonthNav = styled.div`
-    display: flex;
-`
+
 const CalendarBody = styled.div`
     height: 500px;
     width: 100%;
@@ -53,7 +60,7 @@ class DaysArray {
 }
 
 
-let date = new Date(2022, 2, 1)
+let date = new Date(2021, 10, 1)
 
 export const calendarDatas = atom({
     key: 'calendarDatas',
@@ -77,21 +84,25 @@ function Calendar() {
         loadSchedules().then(result => {
             setUserSchedule(result)
             setLoading(false)
+            setError(false)
         })
         .catch(error => {
-//          console.error(error.response)
             setLoading(false)
-            setError(true)
+            setError({message: error.message})
+            console.log(error)
         })
+
+
+        // let googleToken = getCookie('google_api_access_token')
+        // axios.get(`https://classroom.googleapis.com/v1/courses?key=${APIkey}`,{
+        //     headers: {
+        //         Authorization: 'Bearer ' + googleToken,
+        //         Accept: 'application/json'
+        //     }
+        // }).then(console.log).catch(console.log)
     }, []);
 
-    const changeMonth = function(next) {
-        setMetaData({
-            axis: new Date(metaData.axis.getFullYear(),
-            metaData.axis.getMonth() + (next ? 1 : -1) , 
-            metaData.axis.getDate())
-        })
-    }
+
     let daysArray = new DaysArray(metaData.axis)
     let schedules = new Array()
 
@@ -108,11 +119,13 @@ function Calendar() {
     })
     return (
         <MainContainer>
+        <MonthNav/>
         <CalendarBody>
             {
                 getLoading ? 
                 <LoadingPage/>
-                : getError ? <ErrorPage/> 
+                : getError ? 
+                <ErrorPage message={getError.message}/> 
                 : daysArray.map((row, rowIdx) => {
                     return(
                     <Fragment key={rowIdx}>
@@ -138,11 +151,6 @@ function Calendar() {
                 })
             }
         </CalendarBody>
-        <MonthNav>
-            <button onClick={() => changeMonth(false)}>LastMonth</button>
-            <div>{metaData.axis.getFullYear()}/{metaData.axis.getMonth() + 1}</div>
-            <button onClick={() => changeMonth(true)}>NextMonth</button>
-        </MonthNav>
         </MainContainer>
     )
 }

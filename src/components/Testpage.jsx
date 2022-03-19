@@ -7,7 +7,7 @@ const Main = styled.div`
 `
 
 const loginSuccess = (response) => {
-    setCookie('google_api_access_token', response.accessToken, 8.64e+7)
+    setCookie('google_api_access_token', response.tokenObj.access_token, 8.64e+7)
 }
 const logoutSuccess = (response) => {
     deleteCookie('google_api_access_token')
@@ -31,7 +31,6 @@ function Testpage(props) {
         <Main>
             <GoogleLogin
                 clientId={clientId}
-                theme="dark"
                 responseType={"id_token"}
                 onSuccess={loginSuccess}
                 onFailure={console.log}
@@ -42,10 +41,13 @@ function Testpage(props) {
 
             <GoogleLogout
                 clientId={clientId}
-                theme="dark"
                 onLogoutSuccess={logoutSuccess}
                 onLogoutFailure={console.log}/>
         </Main>
     )
 }
 export default Testpage
+
+
+//ya29.A0ARrdaM9KUWkZi-ShS2pQ6ZbwQ4IzXZVLRAtsG3iwDGyhmuCxplkpp_M0CTdvKgnsJiqfCmQYdVMSrOled0fpGGDLkU0BelEnCYd5SSHBQHojpcNOt99W9h9RBKYpgm3jfq18sxdcPFfJyKmuoUXBa4EsdAb6
+//ya29.A0ARrdaM9KUWkZi-ShS2pQ6ZbwQ4IzXZVLRAtsG3iwDGyhmuCxplkpp_M0CTdvKgnsJiqfCmQYdVMSrOled0fpGGDLkU0BelEnCYd5SSHBQHojpcNOt99W9h9RBKYpgm3jfq18sxdcPFfJyKmuoUXBa4EsdAb6
