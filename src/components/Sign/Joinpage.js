@@ -2,6 +2,8 @@ import styled from 'styled-components';
 import { useState } from 'react';
 import axios from 'axios';
 import style from '../../assets/css/Join.module.css'
+import Schoolsearchpage from './SchoolSearchPage';
+import School from '../../assets/dummy/School';
 const Main = styled.div`
     clear: both;
 `
@@ -60,6 +62,10 @@ function Signpage(props) {
                 <div>
                     <label>Nickname</label>
                     <input className={style.input} type='text' value={inputUsername} onChange={handleUsername} placeholder="Nickname"/>
+                </div>
+                <div>
+                    <label>School</label>
+                    <input className={style.input} type='text' placeholder="Search..."/>
                 </div>
                 <div>
                     <label>Email</label>
