@@ -27,6 +27,8 @@ const logoutSuccess = (response) => {
 //     })
 // }
 function Testpage(props) {
+    const SCOPE = 'https://www.googleapis.com/auth/classroom.courses '+
+        'https://www.googleapis.com/auth/classroom.coursework.me'
     return (
         <Main>
             <GoogleLogin
@@ -34,10 +36,8 @@ function Testpage(props) {
                 responseType={"id_token"}
                 onSuccess={loginSuccess}
                 onFailure={console.log}
-                scope={
-                    'https://www.googleapis.com/auth/classroom.courses',
-                    'https://www.googleapis.com/auth/classroom.coursework.me'
-                }/>
+                scope={'https://www.googleapis.com/auth/classroom.courses https://www.googleapis.com/auth/classroom.coursework.me'}
+                />
 
             <GoogleLogout
                 clientId={clientId}
@@ -47,7 +47,3 @@ function Testpage(props) {
     )
 }
 export default Testpage
-
-
-//ya29.A0ARrdaM9KUWkZi-ShS2pQ6ZbwQ4IzXZVLRAtsG3iwDGyhmuCxplkpp_M0CTdvKgnsJiqfCmQYdVMSrOled0fpGGDLkU0BelEnCYd5SSHBQHojpcNOt99W9h9RBKYpgm3jfq18sxdcPFfJyKmuoUXBa4EsdAb6
-//ya29.A0ARrdaM9KUWkZi-ShS2pQ6ZbwQ4IzXZVLRAtsG3iwDGyhmuCxplkpp_M0CTdvKgnsJiqfCmQYdVMSrOled0fpGGDLkU0BelEnCYd5SSHBQHojpcNOt99W9h9RBKYpgm3jfq18sxdcPFfJyKmuoUXBa4EsdAb6

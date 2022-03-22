@@ -13,18 +13,20 @@ const Container = styled.div`
     
 
 `
-
+function fillZero(width, str){
+    return str.length >= width ? str:new Array(width-str.length+1).join('0')+str;//남는 길이만큼 0으로 채움
+}
 function SchoolMeal() {
     const [getSchoolMeal, setSchoolMeal] = useState([])
     const [getLoading, setLoading] = useState(true)
-    let date = '20220310'
     let STYLE = undefined
     let timeStyle = [style.breakfast, style.lunch, style.dinner]
     let timeName = ['아침', '점심', '저녁']
     let idx = -1
     let menu = ''
     useEffect(() => {
-        SchoolMealLoader('20220318')
+        const today = new Date()
+        SchoolMealLoader(today.getFullYear() + fillZero(2, (today.getMonth() + 1).toString()) + fillZero(2, today.getDate().toString()))
         .then((result) => {
             setSchoolMeal(result.data.mealServiceDietInfo[1].row)
             console.log(result.data.mealServiceDietInfo[1].row)
