@@ -16,6 +16,8 @@ import axios from 'axios'
 import { APIkey } from '../config/config.js';
 import { getCookie } from '../../global_helper/cookie.js';
 
+import dummyAPI from '../../assets/dummy/classroomApi'
+
 const MainContainer = styled.div`
     z-index: 0;
     width: 700px;
@@ -80,8 +82,11 @@ function Calendar() {
     const [getLoading, setLoading] = useState(true)
     const [getError, setError] = useState(false)
 
+
     useEffect(() => {
+        /*
         loadSchedules().then(result => {
+            
             setUserSchedule(result)
             setLoading(false)
             setError(false)
@@ -91,6 +96,10 @@ function Calendar() {
             setError({message: error.message})
             console.log(error)
         })
+        */
+        setUserSchedule(dummyAPI)
+        setLoading(false)
+        setError(false)
 
 
         // let googleToken = getCookie('google_api_access_token')
