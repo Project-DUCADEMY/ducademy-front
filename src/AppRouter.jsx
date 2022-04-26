@@ -17,6 +17,7 @@ import Calendar from './components/Calendar/Calendar'
 import Test2 from './components/Loadingpage'
 import Errorpage from './components/Errorpage';
 import RtClass from './components/rtClass/rtCLass'
+import DataBoard from './components/DataBoard/DataBoard.js'
 
 import User from './global_helper/user'
 import Loading from './global_helper/loading'
@@ -68,6 +69,7 @@ const AppRouter = () => {
                         <Route path='/debugger'> <Debuggerpage/> </Route>
                         <Route path='/calendar'> <Calendar/> </Route>
                         <Route path='/rtClass'> <RtClass/> </Route>
+                        <Route path='/dataBoard'> <DataBoard/> </Route>
                         <Route path='/test2'> <Testpage/> </Route>
                         <Route> <Redirect to="/"/> </Route>
                     </Switch>

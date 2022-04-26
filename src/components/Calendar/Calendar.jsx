@@ -62,7 +62,7 @@ class DaysArray {
 }
 
 
-let date = new Date(2021, 10, 1)
+let date = new Date(2021, 11, 1)
 
 export const calendarDatas = atom({
     key: 'calendarDatas',
@@ -97,7 +97,8 @@ function Calendar() {
             console.log(error)
         })
         */
-        setUserSchedule(dummyAPI)
+       setUserSchedule(dummyAPI)
+       console.log(dummyAPI)
         setLoading(false)
         setError(false)
 

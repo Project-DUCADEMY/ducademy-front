@@ -46,7 +46,9 @@ export default (props) => {
                 {props.data.title}
             </ScheduleTitle>
             {getOnOver ? 
-                <ScheduleDetail 
+                <ScheduleDetail
+                    setOnOver={setOnOver}
+                    onMouseOut={() => setOnOver(false)}
                     title={props.data.title}
                  />
                 : 
